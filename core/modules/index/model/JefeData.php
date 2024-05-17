@@ -42,11 +42,11 @@ class JefeData {
 		return Executor::doit($sql);
 	}
 	// Actualizacion
-	public functionModifier_pivilegio(){
+	public function Modifier_pivilegio(){
 		$sql = "update ".self::$tablename." set activo=\"$this->activo\",admin=\"$this->admin\",publico=\"$this->publico\" where id_usuario=$this->id_usuario";
 		Executor::doit($sql);
 	}
-	public functionModifier(){
+	public function Modifier(){
 		$sql = "update ".self::$tablename." set usuario=\"$this->usuario\" where id_usuario=$this->id_usuario";
 		Executor::doit($sql);
 	}
@@ -58,7 +58,7 @@ class JefeData {
 		$sql = "update ".self::$tablename." set nombre=\"$this->nombre\",apellido=\"$this->apellido\",dni=\"$this->dni\",telefono=\"$this->telefono\",email=\"$this->email\",sexo=\"$this->sexo\" where id_usuario=$this->id_usuario";
 		Executor::doit($sql);
 	}
-	public functionModifier_imagen(){
+	public function Modifier_imagen(){
 		$sql = "update ".self::$tablename." set imagen=\"$this->imagen\" where id_usuario=$this->id_usuario";
 		Executor::doit($sql);
 	}
@@ -185,6 +185,3 @@ public static function getEliminarPersonal($id_usuario){
 }
 
 ?> 
-
-
-
