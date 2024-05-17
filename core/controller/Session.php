@@ -21,7 +21,7 @@ class Session {
 		}
 		return $found;
 	}
-	function getUID(){
+	static function getUID(){
 		if(!isset($_SESSION["admin_id"])){ return null; }
 		return $_SESSION["admin_id"];
 	}
