@@ -27,49 +27,49 @@
           <!-- /.info-box -->
       </div>
       <!-- /.col -->
-      <div class="col-md-4 col-sm-6 col-xs-12">
+      <!--div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-red"><i class="fa fa-folder-open"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Dossiers</span>
-              <span class="info-box-number"><?php echo count(CarpetaData::getAll());?></span>
+              <span class="info-box-number"><?#php echo count(CarpetaData::getAll());?></span-->
               <!-- <a href="./?view=detalleproceso" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a> -->
-            </div>
+            <!--/div-->
             <!-- /.info-box-content -->
-          </div>
+          <!--/div-->
           <!-- /.info-box -->
-      </div>
+      <!--/div-->
       <!-- /.col -->
       <!-- fix for small devices only -->
-      <div class="clearfix visible-sm-block"></div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
+      <!--div class="clearfix visible-sm-block"></div-->
+      <!--div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box"-->
             <!-- <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span> -->
-            <span class="info-box-icon bg-green"><i class="fa fa-file-text"></i></span>
+            <!--span class="info-box-icon bg-green"><i class="fa fa-file-text"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Documents</span>
-              <span class="info-box-number"><?php echo count(DocumentoData::getAll());?></span>
+              <span class="info-box-number"><?#php echo count(DocumentoData::getAll());?></span-->
               <!-- <a href="./?view=cliente" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a> -->
-            </div>
+            <!--/div-->
             <!-- /.info-box-content -->
-          </div>
+          <!--/div-->
           <!-- /.info-box -->
-      </div>
+      <!--/div-->
       <!-- /.col -->
-      <div class="col-md-4 col-sm-6 col-xs-12">
+      <!--div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-yellow"><i class="fa fa-user-secret"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Utilisateurs</span>
-              <span class="info-box-number"><?php echo count(UserData::getAll());?></span>
+              <span class="info-box-number"><?#php echo count(UserData::getAll());?></span-->
               <!-- <a href="./?view=administrador" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a> -->
-            </div>
+            <!--/div-->
             <!-- /.info-box-content -->
-          </div>
+          <!--/div-->
           <!-- /.info-box -->
-      </div>
+      </div-->
       <!-- /.col -->
     </div>
     <!-- ---------------------------------------INICIO DE LA PRIMERA CLUMNA------------- -->
@@ -118,15 +118,15 @@
           </div>
           <!-- /.box -->
       </section>
-      <section class="col-xs-4">
+      <!--section class="col-xs-4"-->
         <!-- Map box -->
-          <div class="box box-danger">
+          <!--div class="box box-danger">
             <div class="box-header">
               <img src="storage/institucion/logolobosinfondo.png" class="img-responsive" alt="">
             </div>
-          </div>
+          </div-->
           <!-- /.box -->
-      </section>
+      <!--/section-->
   <!-- ---------------------------------------------------------FINAL DE LA SEGUNDA COLUMNA--- -->
     </div>
   </section>
