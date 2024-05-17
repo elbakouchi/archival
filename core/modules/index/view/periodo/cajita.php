@@ -71,9 +71,31 @@ $carpetas = PeriodoCarpetaData::getAllByTeamId($_GET["id_periodo"]);
                   if($_SESSION["admin_id"]!=""){
                   $u = UserData::getById($_SESSION["admin_id"]);
                   }?>
-                   <?php if($u->admin):?>
-                <a href="index.php?action=eliminarcarpetas&id_carpeta=<?php echo $car->id_carpeta;?>&tid=<?php echo $team->id_periodo;?>" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-trash-o"></i> Supprimer</a>
-              <?php endif; ?> 
+                  <a href="#" id="deleteLink" class="btn btn-danger btn-sm btn-flat">
+                      <i class="fa fa-trash-o"></i> Supprimer
+                  </a>
+
+                  <!-- Bootstrap Modal -->
+                  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                              </div>
+                              <div class="modal-body">
+                                  Are you sure you want to delete this folder?
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                  <button type="button" id="confirmDeletion" class="btn btn-danger">Yes, Delete</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+ 
                 <?php else:?>
                 <?php endif;?>
                 </td>
@@ -93,4 +115,31 @@ $carpetas = PeriodoCarpetaData::getAllByTeamId($_GET["id_periodo"]);
         </div>
       </div>
     </section>
+    <script>
+document.getElementById('deleteLink').addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default action (which would navigate away)
+    
+    var idCarpeta = <?php echo json_encode($car->id_carpeta);?>;
+    var tid = <?php echo json_encode($team->id_periodo);?>;
+    
+    $('#confirmDeleteModal').modal('show'); // Show the modal
+    
+    $('#confirmDeletion').on('click', function() {
+        $.ajax({
+            url: 'index.php?action=eliminarcarpetas',
+            method: 'GET',
+            data: {id_carpeta: idCarpeta, tid: tid},
+            success: function(response) {
+                location.reload(); // Reload the page after successful deletion
+            },
+            error: function(xhr, status, error) {
+                console.error("Error deleting folder:", error);
+            }
+        });
+        
+        $('#confirmDeleteModal').modal('hide'); // Hide the modal after deletion
+    });
+});
+</script>
+
   </div>
