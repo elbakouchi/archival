@@ -4,7 +4,7 @@
 // esta funcion elimina el hecho de estar agregando los modelos manualmente
 
 
-function __autoload($modelname){
+function autoload($modelname){
 	if(Model::exists($modelname)){
 		include Model::getFullPath($modelname);
 	} 
@@ -14,6 +14,6 @@ function __autoload($modelname){
 	}
 }
 
-
+spl_autoload_register('autoload');
 
 ?>
