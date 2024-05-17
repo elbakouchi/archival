@@ -19,7 +19,7 @@ class Action {
 
 
 			if(Action::isValid()){
-				include "core/modules/".Module::$module."/action/".$_GET['action']."/accion.php";				
+				include "core/modules/".Module::$module."/action/".$_GET['action']."/accion.php";
 			}else{
 				Action::Error("<b>404 NOT FOUND</b> Action <b>".$_GET['action']."</b> folder  !!");
 			}
@@ -45,7 +45,7 @@ class Action {
 		print $message;
 	}
 
-	public function execute($action,$params){
+	public static function execute($action,$params){
 		$fullpath =  "core/modules/".Module::$module."/action/".$action."/accion.php";
 		if(file_exists($fullpath)){
 			include $fullpath;
