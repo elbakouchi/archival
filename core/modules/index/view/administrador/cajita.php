@@ -10,9 +10,9 @@
         Lista de los Administradores Administrador <small> </small>
       </h1>
       <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=administrador">Administrador</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <section class="content">
@@ -20,13 +20,13 @@
         <div class="box-header with-border">
           <?php
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations mises à jour avec succès</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
           <small>
             <div class="box-tools pull-left">
-             <?php if ($u->admin):?><a href="#myModal" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-user-plus"></i> Nuevo Administrador</a>
+             <?php if ($u->admin):?><a href="#myModal" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-user-plus"></i> Nouvel Administrador</a>
               <!-- <a href="index.php?view=proyecto" data-toggle="modal" class="btn btn-success btn-sm"><i class="fa fa-refresh"></i></a> --><?php endif; ?>
             </div>
           </small>
@@ -40,13 +40,13 @@
               <table id="example1" class="table table-bordered table-dark" style="width:100%">
                 <thead>
                   <!-- <th>ID</th> -->
-                  <th>Nombre</th>
+                  <th>Nom</th>
                   <th>Dni</th>
-                  <th>Telefono</th>
+                  <th>Télephone</th>
                   <th>E-mail</th>
-                  <th>Activo</th>
+                  <th>Actif</th>
                   <!-- <th>Pagado</th> -->
-                  <?php if($u->admin):?><th><center>Acción</center></th><?php endif; ?>
+                  <?php if($u->admin):?><th><center>Action</center></th><?php endif; ?>
                 </thead>
                 <tbody>
                    <?php
@@ -63,8 +63,8 @@
                   <!-- <td><?php echo $user->descripcion; ?></td> -->
                   <?php if($u->admin):?>
                   <td style="width:170px;">
-                  <a href="index.php?view=actualizaradministrador&id_usuario=<?php echo $user->id_usuario;?>" data-toggle="modal" class="btn btn-success btn-sm btn-flat"><i class="fa fa-cog"></i> Configurar</a>
-                  <a href="index.php?action=eliminaradmin&id_usuario=<?php echo $user->id_usuario;?>" class="btn btn-danger btn-sm btn-flat"><i class='fa fa-trash-o'></i> Eliminar</a>
+                  <a href="index.php?view=actualizaradministrador&id_usuario=<?php echo $user->id_usuario;?>" data-toggle="modal" class="btn btn-success btn-sm btn-flat"><i class="fa fa-cog"></i> Configurer</a>
+                  <a href="index.php?action=eliminaradmin&id_usuario=<?php echo $user->id_usuario;?>" class="btn btn-danger btn-sm btn-flat"><i class='fa fa-trash-o'></i> Supprimer</a>
                   </td>
                   <?php endif; ?>
                   </tr>
@@ -93,7 +93,7 @@
             <div class="modal-body has-feedback has-warning">
               <form class="form-horizontal" method="POST" action="index.php?action=nuevoadministrador">
                 <div class="form-group has-feedback has-warning">
-                    <label for="inputEmail1" class="col-sm-3 control-label">Nombre</label>
+                    <label for="inputEmail1" class="col-sm-3 control-label">Nom</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="nombre" name="nombre" required onkeypress="return sololetras(event)" placeholder="Nombre del Jefe" onpaste="return false" onKeyUP="this.value=this.value.toUpperCase();">
                       <span class="fa fa-child form-control-feedback"></span>
@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="form-group has-feedback has-warning">
-                    <label for="inputEmail1" class="col-sm-3 control-label">Telefono</label>
+                    <label for="inputEmail1" class="col-sm-3 control-label">Télephone</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="telefono" name="telefono" maxlength="9">

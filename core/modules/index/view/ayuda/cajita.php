@@ -1,45 +1,50 @@
 <div class="content-wrapper">
-      <section class="content">
-          <i class="pull-right fa fa-question-circle fa-4x"></i><center><img src="storage/institucion/sasa.png" class="img-responsive" alt="" width="40%"><B>FOLDERFILE</B></center>
-          <center><H1><B>HELP</B></H1></center>
-          <h3><i>SISTEMA:</i></h3>
-          <P><i>Sistema de Repositorio IFOLDERFILE Versión <b>1.2</b>, desarrollado en PHP v7. y Mysql, tiene el objetivo de salvaguardar los documentos de la Municipalidad de todos los periodos de la alcaldia dando una seguridad de cualquier perdida o filtro.</i></P>
-          <h3>Comentario:</h3>
-                    <p>Bienvenido querido usuario, le daremos unas  pautas respecto al correcto uso de este sistema de de Repositorio FOLDERFILE, ten en cuentan que cada gestion que se realiza como (Registrar, Modificar oModifier y Eliminar), entre otros, sera gestionada con los datos del usuarios que a ingresado para mas adelante sustentar quien realizó dicho cambio, asi poder evitar cualquier problema. <i class="fa fa-smile-o fa-1x" style="color: green;"></i></p>
-          <h3>Modulos del Sistema:</h3>
-                    <p>Son todo los formularios del sistema.</p>
-                    <ul>
-                    <li><b>Inicio</b>: .</li>
-                    <li><b>Periodo</b>: .</li>
-                    <li><b>Archivador</b>: .</li>
-                    <li><b>Documento</b>: .</li>
-                    <li><b>Area/Oficina</b>: .
-                      <li><b>Archivador</b>: .</li>
-                      <li><b>Documento</b>: .</li>
-                    </li>
-                    <li><b>Encargados</b>: .</li>
-                    <li><b>Administrador</b>: .</li>
-                    <li><b>Reportes Documentos en General</b>: .</li>
-                    <li><b>Reportes Documentos Activos</b>: .</li>
-                    <li><b>Reportes Documentos Perdidos</b>: .</li>
-                    <li><b>Reportes Encargado</b>: .</li>
-                    <li><b>Reportes Administrador</b>: .</li>
-                    <li><b>Reportes Documentos en General</b>: .</li>
-                    <li><b>Configuacion General del Sistema</b>: .</li>
-                    <li><b>Perfil</b>: .</li>
-                    </ul>
-          <H3><B>POSIBLES PROBLEMAS PARA EL USUARIO NUEVO</B></H3>
-          <h3>Retroceder:</h3>
-                    <p>Para poder retocerder hacia atraz cuando esta navegando en el sistema use la <b>Flecha esquierda del Navegador</b>. <i class="fa fa-arrow-left"></i></p>
-          <h3>Periodo:</h3>
-                    <p>Cuando Inicies Sesion el Sistema te Permitira visualizar solo tres opciones en el Menu, si usted es un usuario <b>Encargado</b> es necesario ir a opcion <b>Repositorio</b> y selecionar al periodo que va usar, si admin estara ingresando desde el <b>menu</b>. <i class="fa fa-arrows-h"></i></p>
-          <h3>Gestionar Archivador:</h3>
-                    <p>Para crear un <b>Archivador</b> hay dos maneras, <b style="color: red;">Primera</b> para el admin si esta en el menu del sistema, le permitira visualizar la lista del registro de periodos de Alcaldia usted Seleccionara el periodo Indicado y el sistema le llevara la formularo correspondiente y permitira crear un Archivador, recomendable <b>Crear con el nombre de Area/Oficina</b>, <b style="color: red;">Segunda</b> para admin y Encargado, ir a la opcion de Areas/Oficinas en el menu, esto se realiza cuando una vez ya esta selecionado el periodo, deslizar e Ingresar el sistema le llevara al formulario correspondiente, dentro de ello le enconstrara a areas/oficinas registradas por el Admin, seleccionar Area/Oficina deseada y el sistema le llevara aun formulario correspondiente, dentro alli le permitira gestionar los Archivadores de manera Ordenada por Areas o Oficinas. <i class="fa fa-laptop"></i></p>
-          <h3>Activo o Desactivo en Usuarios:</h3>
-                    <p>Activar o Desactivar el Aministrador o Encargado, esto le permite a que el personale deje de laborar dentro del sistema, este usuario una vez cuando este desactivado su <b>Usuario</b> y <b>Contraseña</b> estara obsoletos, no volvera a acceder al sistema !Tener mucho cuidado al desactivar!. <i class="fa fa-expeditedssl"></i></p>
-           <h3>Personalización:</h3>
-                    <p>Ir a la opcion de <b>Configuracion</b> para personalizar el sistema en General. <i class="fa fa-institution"></i></p>
-          <h3><i class="fa fa-exclamation-triangle"></i>Para los Encargados:</h3>
-                    <p>No Intente Forzar el Sistema ya que estara limitado a muchas Opciones como (Eliminar, Registrar entre otros) tener paciencia cualquier problemas consultar al <b>Administrador</b>. <i class="fa fa-user-circle"></i></p>
-        </section>
-  </div>
+    <section class="content">
+        <i class="pull-right fa fa-question-circle fa-4x"></i>
+        <center>
+            <img src="storage/institucion/sasa.png" class="img-responsive" alt="" width="40%">
+            <b>FOLDERFILE</b>
+        </center>
+        <center>
+            <h1><b>AIDE</b></h1>
+        </center>
+        <h3><i>SYSTÈME :</i></h3>
+        <p><i>Le système de dépôt IFOLDERFILE version <b>1.2</b>, développé en PHP v7 et MySQL, a pour but de sauvegarder les documents de la municipalité de toutes les périodes de la mairie, garantissant ainsi une sécurité contre toute perte ou fuite.</i></p>
+        <h3>Commentaire :</h3>
+        <p>Bienvenue cher utilisateur, voici quelques conseils pour une utilisation correcte de ce système de dépôt FOLDERFILE. Gardez à l'esprit que chaque gestion effectuée, comme l'enregistrement, la modification ou la suppression, sera attribuée aux données de l'utilisateur connecté, permettant ainsi de savoir qui a effectué chaque changement pour éviter tout problème. <i class="fa fa-smile-o fa-1x" style="color: green;"></i></p>
+        <h3>Modules du Système :</h3>
+        <p>Ce sont tous les formulaires du système.</p>
+        <ul>
+            <li><b>Accueil</b> : .</li>
+            <li><b>Période</b> : .</li>
+            <li><b>Archiviste</b> : .</li>
+            <li><b>Document</b> : .</li>
+            <li><b>Zone/Bureau</b> : .</li>
+            <li><b>Archiviste</b> : .</li>
+            <li><b>Document</b> : .</li>
+            <li><b>Responsables</b> : .</li>
+            <li><b>Administrateur</b> : .</li>
+            <li><b>Rapports Documents en Général</b> : .</li>
+            <li><b>Rapports Documents Actifs</b> : .</li>
+            <li><b>Rapports Documents Perdus</b> : .</li>
+            <li><b>Rapports Responsable</b> : .</li>
+            <li><b>Rapports Administrateur</b> : .</li>
+            <li><b>Rapports Documents en Général</b> : .</li>
+            <li><b>Configuration Générale du Système</b> : .</li>
+            <li><b>Profil</b> : .</li>
+        </ul>
+        <h3><b>POSSIBLES PROBLÈMES POUR LE NOUVEL UTILISATEUR</b></h3>
+        <h3>Reculer :</h3>
+        <p>Pour revenir en arrière lors de la navigation dans le système, utilisez la <b>Flèche gauche du Navigateur</b>. <i class="fa fa-arrow-left"></i></p>
+        <h3>Période :</h3>
+        <p>Lorsque vous vous connectez, le système vous permet de visualiser uniquement trois options dans le menu. Si vous êtes un utilisateur <b>Responsable</b>, vous devez aller dans l'option <b>Dépôt</b> et sélectionner la période à utiliser. Si vous êtes administrateur, vous accédez via le <b>menu</b>. <i class="fa fa-arrows-h"></i></p>
+        <h3>Gérer Archiviste :</h3>
+        <p>Pour créer un <b>Archiviste</b>, il existe deux méthodes. <b style="color: red;">Première</b> pour l'administrateur : si vous êtes dans le menu du système, vous pouvez visualiser la liste des périodes d'enregistrement de la mairie. Sélectionnez la période indiquée et le système vous dirigera vers le formulaire correspondant, permettant ainsi de créer un Archiviste, de préférence <b>avec le nom de la Zone/Bureau</b>. <b style="color: red;">Deuxième</b> pour l'administrateur et le Responsable : allez dans l'option Zones/Bureaux dans le menu, une fois la période sélectionnée, entrez dans le système, cela vous dirigera vers le formulaire correspondant, où vous trouverez les zones/bureaux enregistrés par l'administrateur. Sélectionnez la Zone/Bureau souhaitée et le système vous dirigera vers un formulaire correspondant, vous permettant de gérer les Archivistes de manière ordonnée par zones ou bureaux. <i class="fa fa-laptop"></i></p>
+        <h3>Actif ou Inactif dans les Utilisateurs :</h3>
+        <p>Activer ou désactiver l'administrateur ou le Responsable, cela permet au personnel de cesser de travailler dans le système. Une fois que cet utilisateur est désactivé, son <b>Utilisateur</b> et son <b>Mot de passe</b> seront obsolètes, il ne pourra plus accéder au système ! Faites très attention en désactivant ! <i class="fa fa-expeditedssl"></i></p>
+        <h3>Personnalisation :</h3>
+        <p>Allez dans l'option <b>Configuration</b> pour personnaliser le système en général. <i class="fa fa-institution"></i></p>
+        <h3><i class="fa fa-exclamation-triangle"></i>Pour les Responsables :</h3>
+        <p>Ne tentez pas de forcer le système car vous serez limité à de nombreuses options comme (supprimer, enregistrer, entre autres). Ayez de la patience, pour tout problème, consultez l'<b>Administrateur</b>. <i class="fa fa-user-circle"></i></p>
+    </section>
+</div>

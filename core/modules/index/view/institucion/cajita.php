@@ -3,10 +3,10 @@
   <div class="content-wrapper">
     <section class="content-header">
       <h1><i class='fa fa-cog'></i>
-        CONFIGURACIÓN DE LA ORGANIZACIÓN <i class="fa fa-institution"></i>
+        CONFIGURATION DE L'ORGANISME <i class="fa fa-institution"></i>
       </h1>
 <!--       <ol class="breadcrumb">
-        <li><a href="./"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="./"><i class="fa fa-dashboard"></i> Début</a></li>
         <li>Usuarios</li>
         <li class="active">Lista de Usuario</li>
       </ol> -->
@@ -28,18 +28,19 @@
               <table  class="table table-bordered">
                 <thead>
                   <!-- <th><center>Id</center> </th> -->
-                  <th><center>Municipalidad</center></th>
-                  <th><center>Alcalde</center></th>
+                  <th><center>Municipalité</center></th>
+                  <th><center>Maire</center></th>
                   <th><center>Gestion</center></th>
-                  <th><center>Direccion</center></th>
+                  <th><center>Adresse</center></th>
                   <th><center>Logo</center></th>
+
                   <?php 
                   $u=null;
                   if(isset($_SESSION["admin_id"]) && $_SESSION["admin_id"]!=""):
                     $u = UserData::getById($_SESSION["admin_id"]);
                   ?>
                   <?php if($u->admin):?>
-                  <th><center>Acción</center></th>
+                  <th><center>Action</center></th>
                   <?php endif;?>
                   <?php else:?>
                   <?php endif;?>
@@ -65,9 +66,9 @@
                   ?>
                   <?php if($u->admin):?>
                   <td style="width:30px;">
-                    <a href="index.php?view=configuracion&id_institucion=<?php echo $user->id_institucion;?>" data-toggle="modal" class="btn btn-success btn-sm btn-flat"><i class="fa fa-refresh"> </i> Configurar</a>
+                    <a href="index.php?view=configuracion&id_institucion=<?php echo $user->id_institucion;?>" data-toggle="modal" class="btn btn-success btn-sm btn-flat"><i class="fa fa-refresh"> </i> Configurer</a>
                   <!--  <a href="#edit" data-toggle="modal" class="btn btn-success btn-sm btn-flat" id="<?php echo $row['user']; ?>"><i class="fa fa-edit"></i> Editar</a> -->
-              <!--       <a href="index.php?action=eliminardocumento&id_documento=<?php echo $user->id_documento;?>" class="btn btn-danger btn-sm btn-flat"><i class='fa fa-trash'></i>Eliminar</a> -->
+              <!--       <a href="index.php?action=eliminardocumento&id_documento=<?php echo $user->id_documento;?>" class="btn btn-danger btn-sm btn-flat"><i class='fa fa-trash'></i>Supprimer</a> -->
                   </td>
                   <?php endif;?>
                   <?php else:?>

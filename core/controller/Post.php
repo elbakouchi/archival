@@ -8,7 +8,7 @@
 class Post {
 	function __get($value){
 		if(!$this->exist($value)){
-			print "<b>POST ERROR</b> El parametro <b>$value</b> que intentas llamar no existe!";
+			print "<b>ERREUR DE REQUÊTE</b> Le paramètre <b>$value</b> que vous essayez d'appeler n'existe pas !";
 			die();
 		}
 		return $_POST[$value];

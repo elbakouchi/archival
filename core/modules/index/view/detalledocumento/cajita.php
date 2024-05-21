@@ -21,7 +21,7 @@
           <h3>Détails:</h3>
                     <p>Informations pertinentes du document avec des données mises à jour.</p>
                     <ul>
-                    <li><b> Nombre pieces</b>: <?php echo $archivos->folio ; ?>.</li>
+                    <li><b> N° boite archive</b>: <?php echo $archivos->folio ; ?>.</li>
                     <li><b>Objet</b>: <?php echo $archivos->responsable ; ?>.</li>
                     <li><b>Mis à jour par</b>: <?php if($archivos->usuario_id!=null){echo $archivos->getUsuario()->nombre." ".$archivos->getUsuario()->apellido;}else{ echo ""; }  ?>.</li>
                     <li><b>Nom de fichier</b>: <?php echo $archivos->otros ; ?>.</li>

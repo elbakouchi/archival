@@ -21,14 +21,14 @@
         <div class="box-body">
           <form class="form-horizontal" method="post" action="index.php?action=actualizarareaoficina" role="form">
             <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-4 control-label">Nombre</label>
+              <label for="inputEmail1" class="col-lg-4 control-label">Nom</label>
                 <div class="col-lg-8">
                   <input type="text" name="nombre" required class="form-control" id="nombre" placeholder="Nombre - Organización" onkeypress="return sololetras(event)" value="<?php echo $area->nombre; ?>">
                   <span class="fa fa-file-text-o fa fa-instirution form-control-feedback"></span>
                 </div>
             </div>
             <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-4 control-label">Descripcion</label>
+              <label for="inputEmail1" class="col-lg-4 control-label">Description</label>
                 <div class="col-lg-8">
                   <textarea class="form-control" name="detalle" id="detalle" value="<?php echo $area->detalle; ?>"><?php echo $area->detalle; ?></textarea>
                   <span class="fa fa-list fa fa-instirution form-control-feedback"></span>

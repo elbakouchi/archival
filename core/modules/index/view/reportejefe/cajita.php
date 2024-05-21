@@ -5,9 +5,9 @@
         REPORTE JEFES DEL AREA
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=administrador">Administrador</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol>
     </section>
     <section class="content">
@@ -44,7 +44,7 @@
             </div>
 
             <div class="col-md-3">
-            <input type="submit" class="btn btn-success btn-block" value="Procesar">
+            <input type="submit" class="btn btn-success btn-block" value="Envoyer">
             </div>
 
             </div>
@@ -93,10 +93,10 @@
 <table class="table table-bordered">
   <thead>
 
-    <th>Nombre</th>
+    <th>Nom</th>
     <th>Apellido</th>
     <th>Dni</th>
-    <th>Telefono</th>
+    <th>Télephone</th>
     <th>Email</th>
     <th>Estado</th>
     <th>Area\Oficina</th>

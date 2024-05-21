@@ -464,29 +464,29 @@ $org = OrganizacionData::getAll();
       $(document).ready(function(){
         $(".datatable").DataTable({
           "language": {
-        "sProcessing":    "Procesando...",
-        "sLengthMenu":    "Mostrar _MENU_ registros",
-        "sZeroRecords":   "No se encontraron resultados",
-        "sEmptyTable":    "Ningún dato disponible en esta tabla",
-        "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-        "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
-        "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
-        "sInfoPostFix":   "",
-        "sSearch":        "Buscar:",
-        "sUrl":           "",
-        "sInfoThousands":  ",",
-        "sLoadingRecords": "Cargando...",
-        "oPaginate": {
-            "sFirst":    "Primero",
-            "sLast":    "Último",
-            "sNext":    "Siguiente",
-            "sPrevious": "Anterior"
-        },
-        "oAria": {
-            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-        }
-    }
+              "sProcessing":    "Traitement en cours...",
+              "sLengthMenu":    "Afficher _MENU_ enregistrements",
+              "sZeroRecords":   "Aucun résultat trouvé",
+              "sEmptyTable":    "Aucune donnée disponible dans ce tableau",
+              "sInfo":          "Affichage des enregistrements de _START_ à _END_ sur un total de _TOTAL_ enregistrements",
+              "sInfoEmpty":     "Affichage des enregistrements de 0 à 0 sur un total de 0 enregistrements",
+              "sInfoFiltered":  "(filtré à partir d'un total de _MAX_ enregistrements)",
+              "sInfoPostFix":   "",
+              "sSearch":        "Rechercher :",
+              "sUrl":           "",
+              "sInfoThousands":  ",",
+              "sLoadingRecords": "Chargement en cours...",
+              "oPaginate": {
+                  "sFirst":    "Premier",
+                  "sLast":    "Dernier",
+                  "sNext":    "Suivant",
+                  "sPrevious": "Précédent"
+              },
+              "oAria": {
+                  "sSortAscending":  ": Activer pour trier la colonne par ordre croissant",
+                  "sSortDescending": ": Activer pour trier la colonne par ordre décroissant"
+              }
+          }
         });
       });
     </script>
@@ -494,7 +494,7 @@ $org = OrganizacionData::getAll();
   $(function () {
     $('#example1').DataTable({
       responsive: true,
-      "language": idioma_español
+      "language": idioma_french
     })
     $('#example2').DataTable({
       'paging'      : true,
@@ -504,9 +504,34 @@ $org = OrganizacionData::getAll();
       'info'        : true,
       'autoWidth'   : false,
 
-      "language": idioma_español
+      "language": idioma_french
     })
   })
+  var idioma_french = {
+    "sProcessing":     "Traitement en cours...",
+    "sLengthMenu":     "Afficher _MENU_ enregistrements",
+    "sZeroRecords":    "Aucun résultat trouvé",
+    "sEmptyTable":     "Aucune donnée disponible dans ce tableau",
+    "sInfo":           "Affichage des enregistrements de _START_ à _END_ sur un total de _TOTAL_ enregistrements",
+    "sInfoEmpty":      "Affichage des enregistrements de 0 à 0 sur un total de 0 enregistrements",
+    "sInfoFiltered":   "(filtré à partir d'un total de _MAX_ enregistrements)",
+    "sInfoPostFix":    "",
+    "sSearch":         "Rechercher :",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": "Chargement en cours...",
+    "oPaginate": {
+        "sFirst":    "Premier",
+        "sLast":     "Dernier",
+        "sNext":     "Suivant",
+        "sPrevious": "Précédent"
+    },
+    "oAria": {
+        "sSortAscending":  ": Activer pour trier la colonne par ordre croissant",
+        "sSortDescending": ": Activer pour trier la colonne par ordre décroissant"
+    }
+};
+
   var idioma_español= {
     "sProcessing":     "Procesando...",
     "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -620,93 +645,93 @@ $(function(){
 <div class="modal fade bs-example-modal-lg" id="perfil" >
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-         <div class="modal-header">
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-           <h4 class="modal-title" id="myModalLabel"><label><marquee> MI PERFIL</marquee></label></h4>
-         </div>
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="myModalLabel"><label><marquee> MON PROFIL</marquee></label></h4>
+      </div>
+
         <div class="modal-body">
           <div class="contendor_kn">
             <div class="panel panel-default">
               <div class="panel-body">
                 <form method="POST" id="update-form-administrador">
-                  <div class="col-md-6">
-                    <input type="text" id="personal_id" name="personal_id" hidden value="<?php echo $u->name; ?>" >
-                    <label  class="col-sm-4 control-label">Nombres </label>
-                    <div class="col-sm-8">
-                      <input type="text" class="form-control" onkeypress="return soloLetras(event)" name="nombres_personal" id="nombres_personal" placeholder="Ingrese Nombres" maxlength="" value="<?php echo $u->nombre; ?>">
+                <div class="col-md-6">
+                  <input type="text" id="personal_id" name="personal_id" hidden value="<?php echo $u->name; ?>" >
+                  <label class="col-sm-4 control-label">Nom </label>
+                  <div class="col-sm-8">
+                      <input type="text" class="form-control" onkeypress="return soloLetras(event)" name="nombres_personal" id="nombres_personal" placeholder="Entrez les prénoms" maxlength="" value="<?php echo $u->nombre; ?>">
                       <br>
-                    </div>
-                    <label  class="col-sm-4 control-label">Apellidos</label>
-                    <div class="col-sm-8">
-                      <input type="text" class="form-control"onkeypress="return soloLetras(event)"  name="apePate_personal" id="apePate_personal" placeholder="Ingrese Apellido Paterno" maxlength="" value="<?php echo $u->apellido; ?>">
-                      <br>
-                    </div>
-                    <label  class="col-sm-4 control-label">Apellido Materno </label>
-                    <div class="col-sm-8">
-                      <input type="text" class="form-control" onkeypress="return soloLetras(event)" name="apeMate_personal" id="apeMate_personal" placeholder="Ingrese Apelido Materno" maxlength="" >
-                      <br>
-                    </div> 
                   </div>
-                  <div class="col-md-6">
-                    <div class="col-sm-12" style="text-align:center">
-                      <label  class="control-label">Fotograf&iacute;a</label><br>
-                      <div id="txtimagen2">
-                         <img src="storage/personal/admin/<?php echo $u->imagen; ?>"class="user-image img-circle" alt="User Image">
-                      </div>                   
-                    </div>                 
+                  <label class="col-sm-4 control-label">Noms de famille</label>
+                  <div class="col-sm-8">
+                      <input type="text" class="form-control" onkeypress="return soloLetras(event)" name="apePate_personal" id="apePate_personal" placeholder="Entrez le nom de famille paternel" maxlength="" value="<?php echo $u->apellido; ?>">
+                      <br>
                   </div>
-                  <div class="col-md-12">
-                    <label  class="col-sm-2 control-label">Email </label>
-                    <div class="col-sm-4">
-                      <input type="email" class="form-control"  style="width: 94%"  name="email_personal" id="email_personal" placeholder="Ingrese email" maxlength="100" value="<?php echo $u->email; ?>" >
+                  <label class="col-sm-4 control-label">Nom de famille maternel </label>
+                  <div class="col-sm-8">
+                      <input type="text" class="form-control" onkeypress="return soloLetras(event)" name="apeMate_personal" id="apeMate_personal" placeholder="Entrez le nom de famille maternel" maxlength="">
                       <br>
-                    </div> 
-                    <label  class="col-sm-2 control-label">Tel&eacute;fono </label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" onkeypress="return soloNumeros(event)"  name="telefono_personal" id="telefono_personal" placeholder="Ingrese nro telefóno" maxlength="9" value="910122259" >
-                      <br>
-                    </div> 
-
-                    <label  class="col-sm-2 control-label">Movil </label>
-                    <div class="col-sm-4">
-                      <input type="text" style="width: 94%" class="form-control" name="movil_personal" id="movil_personal"  onkeypress="return soloNumeros(event)" placeholder="Ingrese nro movil" maxlength="9" value="910122259" >
-                      <br>
-                    </div> 
-                    <label  class="col-sm-2 control-label">Direcci&oacute;n </label>
-                    <div class="col-sm-4">
-                      <input type="text"  class="form-control"  onkeypress="return soloLetras(event)" name="direccion_personal" id="direccion_personal" placeholder="Ingrese dirección" maxlength="200" value="av. peru" >
-                      <br>
-                    </div> 
-                    <label  class="col-sm-2 control-label">Fecha de Registro </label>
-                    <div class="col-sm-4">
-                      <div class=" input-group">
-                        <div class="input-group-addon">
+                  </div>
+              </div>
+              <div class="col-md-6">
+              <div class="col-sm-12" style="text-align:center">
+                  <label class="control-label">Image</label><br>
+                  <div id="txtimagen2">
+                      <img src="storage/personal/admin/<?php echo $u->imagen; ?>" class="user-image img-circle" alt="User Image">
+                  </div>                   
+              </div>                 
+          </div>
+          <div class="col-md-12">
+              <label class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-4">
+                  <input type="email" class="form-control" style="width: 94%" name="email_personal" id="email_personal" placeholder="Entrez l'email" maxlength="100" value="<?php echo $u->email; ?>">
+                  <br>
+              </div> 
+              <label class="col-sm-2 control-label">Téléphone</label>
+              <div class="col-sm-4">
+                  <input type="text" class="form-control" onkeypress="return soloNumeros(event)" name="telefono_personal" id="telefono_personal" placeholder="Entrez le numéro de téléphone" maxlength="9" value="910122259">
+                  <br>
+              </div> 
+              <label class="col-sm-2 control-label">GSM</label>
+              <div class="col-sm-4">
+                  <input type="text" style="width: 94%" class="form-control" name="movil_personal" id="movil_personal" onkeypress="return soloNumeros(event)" placeholder="Entrez le numéro de portable" maxlength="9" value="910122259">
+                  <br>
+              </div> 
+              <label class="col-sm-2 control-label">Adresse</label>
+              <div class="col-sm-4">
+                  <input type="text" class="form-control" onkeypress="return soloLetras(event)" name="direccion_personal" id="direccion_personal" placeholder="Entrez l'adresse" maxlength="200" value="av. peru">
+                  <br>
+              </div> 
+              <label class="col-sm-2 control-label">Date de création</label>
+              <div class="col-sm-4">
+                  <div class="input-group">
+                      <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="text" style="width: 94%;padding: 0px 12px;"  id="fecha"  name="fecha"  class="form-control" value="<?php echo $u->fecha; ?>" >
                       </div>
-                    </div>
-                    <label  class="col-sm-2 control-label">DNI </label>
-                    <div class="col-sm-4">
-                      <input type="text"  class="form-control"  onkeypress="return soloNumeros(event)" name="dni_personal" id="dni_personal" placeholder="Ingrese DNI" maxlength="13" value="70933255" >
-                      <br>
-                    </div>
-                    <label  class="col-sm-2 control-label">Administrador </label>
-                    <div class="col-sm-4">
-                      <label>
-                        <input type="checkbox" name="is_admin" <?php if($u->admin){ echo "checked";}?>> 
-                      </label>
-                      <br>
-                    </div> 
-                    <label  class="col-sm-2 control-label">Activo </label>
-                    <div class="col-sm-4">
-                         <label>
-                        <input type="checkbox" name="is_active" <?php if($u->activo){ echo "checked";}?>> 
-                      </label>
-                      <br>
-                    </div>
-
+                      <input type="text" style="width: 94%; padding: 0px 12px;" id="fecha" name="fecha" class="form-control" value="<?php echo $u->fecha; ?>">
                   </div>
+              </div>
+              <label class="col-sm-2 control-label">DNI</label>
+              <div class="col-sm-4">
+                  <input type="text" class="form-control" onkeypress="return soloNumeros(event)" name="dni_personal" id="dni_personal" placeholder="Entrez le DNI" maxlength="13" value="70933255">
+                  <br>
+              </div>
+              <label class="col-sm-2 control-label">Administrateur</label>
+              <div class="col-sm-4">
+                  <label>
+                      <input type="checkbox" name="is_admin" <?php if($u->admin){ echo "checked"; } ?>> 
+                  </label>
+                  <br>
+              </div> 
+              <label class="col-sm-2 control-label">Actif</label>
+              <div class="col-sm-4">
+                  <label>
+                      <input type="checkbox" name="is_active" <?php if($u->activo){ echo "checked"; } ?>> 
+                  </label>
+                  <br>
+              </div>
+          </div>
+
                   <div class="col-md-12 col-lg-12 col-xs-12" style="text-align:center;" >
                     <br>
                     <div class="col-md-4">
@@ -723,7 +748,7 @@ $(function(){
           </div>  
         </div> 
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-close"></i><strong> Close</strong></button>
+            <button type="button" class="btn btn-danger pull-right" data-dismiss="modal"><i class="fa fa-close"></i><strong> Fermer</strong></button>
         </div> 
     </div>
   </div> 

@@ -6,6 +6,7 @@ include "controller/Module.php";
 include "controller/Database.php";
 include "controller/Executor.php";
 include "controller/class.upload.php";
+include "controller/Json.php";
 //# include "controller/Session.php"; [remplazada]
 
 include "controller/Viewer.php";

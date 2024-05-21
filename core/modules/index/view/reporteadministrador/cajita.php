@@ -39,7 +39,7 @@
             </div>
 
             <div class="col-md-3">
-            <input type="submit" class="btn btn-success btn-block" value="Procesar">
+            <input type="submit" class="btn btn-success btn-block" value="Envoyer">
             </div>
 
             </div>
@@ -88,10 +88,10 @@
 <table class="table table-bordered">
   <thead>
 
-    <th>Nombre</th>
+    <th>Nom</th>
     <th>Apellido</th>
     <th>Dni</th>
-    <th>Telefono</th>
+    <th>Télephone</th>
     <th>Email</th>
     <th>Estado</th>
     <th>Area\Oficina</th>
@@ -122,8 +122,8 @@
   $("#wellcome").hide();
 </script>
 <div class="jumbotron">
-  <h2>No hay operaciones</h2>
-  <p>El rango de fechas seleccionado no proporciono ningun resultado de operaciones.</p>
+<h2>Il n'y a pas d'opérations</h2>
+<p>La plage de dates sélectionnée n'a donné aucun résultat d'opérations.</p>
 </div>
 
        <?php endif; ?>
@@ -132,8 +132,8 @@
   $("#wellcome").hide();
 </script>
 <div class="jumbotron">
-  <h2>Fecha Incorrectas</h2>
-  <p>Puede ser que no selecciono un rango de fechas, o el rango seleccionado es incorrecto.</p>
+  <h2>Dates Incorrectes</h2>
+  <p>Il est possible que vous n'ayez pas sélectionné une plage de dates, ou que la plage sélectionnée soit incorrecte.</p>
 </div>
 <?php endif;?>
 

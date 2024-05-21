@@ -9,9 +9,9 @@ $carpetas = PeriodoCarpetaData::getAllByTeamId($_GET["id_periodo"]);
         <small> </small>
       </h1>
       <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=administrador">Administrador</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <section class="content">
@@ -80,17 +80,17 @@ $carpetas = PeriodoCarpetaData::getAllByTeamId($_GET["id_periodo"]);
                       <div class="modal-dialog" role="document">
                           <div class="modal-content">
                               <div class="modal-header">
-                                  <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                                  <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmer la suppression</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                   </button>
                               </div>
                               <div class="modal-body">
-                                  Are you sure you want to delete this folder?
+                                  Etes vous sur de supprimer cette catégorie?
                               </div>
                               <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                  <button type="button" id="confirmDeletion" class="btn btn-danger">Yes, Delete</button>
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                                  <button type="button" id="confirmDeletion" class="btn btn-danger">Oui</button>
                               </div>
                           </div>
                       </div>
@@ -133,7 +133,7 @@ document.getElementById('deleteLink').addEventListener('click', function(e) {
                 location.reload(); // Reload the page after successful deletion
             },
             error: function(xhr, status, error) {
-                console.error("Error deleting folder:", error);
+                console.error("Erreur suppression du dossier:", error);
             }
         });
         

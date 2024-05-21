@@ -4,9 +4,9 @@
         JEFE <small> </small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=administrador">Administrador</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol>
     </section>
     <section class="content">
@@ -14,7 +14,7 @@
         <div class="box-header with-border">
           <?php
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations mises à jour avec succès</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
@@ -44,11 +44,11 @@
               <table id="example1" class="table table-bordered table-dark" style="width:100%">
                 <thead>
                   <!-- <th>ID</th> -->
-                  <th>Nombre</th>
+                  <th>Nom</th>
                   <th>Dni</th>
-                  <th>Telefono</th>
+                  <th>Télephone</th>
                   <th>E-mail</th>
-                  <th>Activo</th>
+                  <th>Actif</th>
                   <!-- <th>Pagado</th> -->
                   <?php if(isset($_SESSION["admin_id"]) && $_SESSION["admin_id"]!=""):?>
                     <?php 
@@ -57,7 +57,7 @@
                     $u = UserData::getById($_SESSION["admin_id"]);
                     }?>
                 <?php if($u->admin):?>
-                  <th><center>Acción</center></th>
+                  <th><center>Action</center></th>
                   <?php endif; ?> 
                   <?php else:?>
                       <?php endif;?>
@@ -83,8 +83,8 @@
                     }?>
                 <?php if($u->admin):?>
                   <td style="width:170px;">
-                  <a href="index.php?view=actualizaradministrador&id_usuario=<?php echo $user->id_usuario;?>" data-toggle="modal" class="btn btn-success btn-sm btn-flat"><i class="fa fa-cog"></i> Configurar</a>
-                  <a href="index.php?action=eliminarjefe&id_usuario=<?php echo $user->id_usuario;?>" class="btn btn-danger btn-sm btn-flat"><i class='fa fa-trasher-o'></i> Eliminar</a> 
+                  <a href="index.php?view=actualizaradministrador&id_usuario=<?php echo $user->id_usuario;?>" data-toggle="modal" class="btn btn-success btn-sm btn-flat"><i class="fa fa-cog"></i> Configurer</a>
+                  <a href="index.php?action=eliminarjefe&id_usuario=<?php echo $user->id_usuario;?>" class="btn btn-danger btn-sm btn-flat"><i class='fa fa-trasher-o'></i> Supprimer</a> 
                   </td>
                   <?php endif; ?> 
                   <?php else:?>
@@ -115,7 +115,7 @@
             <div class="modal-body has-feedback has-error">
               <form class="form-horizontal" method="POST" action="index.php?action=nuevojefe">
                 <div class="form-group has-feedback has-error">
-                    <label for="inputEmail1" class="col-sm-3 control-label">Nombre</label>
+                    <label for="inputEmail1" class="col-sm-3 control-label">Nom</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="nombre" name="nombre" required onkeypress="return sololetras(event)" placeholder="Nombre del Jefe" onpaste="return false" onKeyUP="this.value=this.value.toUpperCase();">
                       <span class="fa fa-child form-control-feedback"></span>
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <div class="form-group has-feedback has-error">
-                    <label for="inputEmail1" class="col-sm-3 control-label">Telefono</label>
+                    <label for="inputEmail1" class="col-sm-3 control-label">Télephone</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="telefono" name="telefono" maxlength="9">

@@ -147,21 +147,21 @@ if($configuracion!=null):
                     <input type="text" name="red_social3" class="form-control" id="red_social3" value="<?php echo $configuracion->red_social3; ?>" placeholder="Actualice el Titulo del Carroucel"  onkeypress="return sololetras(event)" onpaste="return false" onKeyUP="this.value=this.value.toUpperCase();" maxlength="50">
                     <span class="fa fa-leaf form-control-feedback"></span>
                    </div>
-                   <label for="inputEmail1" class="col-lg-2 control-label">Descripcion 1 Carroucel :</label>
+                   <label for="inputEmail1" class="col-lg-2 control-label">Description 1 Carroucel :</label>
                    <div class="col-md-4 form-group has-feedback">
-                    <input type="text" name="red_social4" class="form-control" id="red_social4" value="<?php echo $configuracion->red_social4; ?>" placeholder="Actualice la Primera Descripcion del Carroucel" maxlength="150" onkeypress="return sololetras(event)">
+                    <input type="text" name="red_social4" class="form-control" id="red_social4" value="<?php echo $configuracion->red_social4; ?>" placeholder="Actualice la Primera Description del Carroucel" maxlength="150" onkeypress="return sololetras(event)">
                     <span class="fa fa-leaf form-control-feedback"></span>
                    </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail1" class="col-lg-2 control-label">Descripcion 2 Carroucel:</label>
+                  <label for="inputEmail1" class="col-lg-2 control-label">Description 2 Carroucel:</label>
                    <div class="col-md-4 form-group has-feedback">
-                    <input type="text" name="red_social5" class="form-control" id="red_social5" value="<?php echo $configuracion->red_social5; ?>" placeholder="Actualice la Segunda Descripcion del Carroucel"  maxlength="200" onkeypress="return sololetras(event)">
+                    <input type="text" name="red_social5" class="form-control" id="red_social5" value="<?php echo $configuracion->red_social5; ?>" placeholder="Actualice la Segunda Description del Carroucel"  maxlength="200" onkeypress="return sololetras(event)">
                     <span class="fa fa-leaf form-control-feedback"></span>
                    </div>
-                   <label for="inputEmail1" class="col-lg-2 control-label">Descripcion 3 Carroucel:</label>
+                   <label for="inputEmail1" class="col-lg-2 control-label">Description 3 Carroucel:</label>
                    <div class="col-md-4 form-group has-feedback">
-                    <input type="text" name="red_social6" class="form-control" id="red_social6" value="<?php echo $configuracion->red_social6; ?>" placeholder="Actualice la Tercera Descripcion del Carroucel"  maxlength="200" onkeypress="return sololetras(event)">
+                    <input type="text" name="red_social6" class="form-control" id="red_social6" value="<?php echo $configuracion->red_social6; ?>" placeholder="Actualice la Tercera Description del Carroucel"  maxlength="200" onkeypress="return sololetras(event)">
                     <span class="fa fa-leaf form-control-feedback"></span>
                    </div>
                 </div>

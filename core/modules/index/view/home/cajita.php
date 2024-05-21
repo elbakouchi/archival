@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail1" class="col-sm-3 control-label">Descripcion</label>
+                    <label for="inputEmail1" class="col-sm-3 control-label">Description</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="descripcion" name="descripcion"  onpaste="return false">

@@ -57,8 +57,16 @@ class Model {
 		return $found;
 	}
 
+	
+	public static function json($query){
+	$cnt = 0;
+	$array = array();
+	while($r = $query->fetch_array()){
+		$array[$cnt] = $r;
+		$cnt++;
+	}
+	return $array;
 }
 
-
-
+}
 ?>

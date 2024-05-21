@@ -15,9 +15,9 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
         <!-- <small> CMJ</small> -->
       </h1>
       <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=periodo">Carpetas</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <?php if($u->admin):?>
@@ -26,7 +26,7 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
         <div class="box-header with-border">
           <?php
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations correctement mises à jour</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
@@ -66,7 +66,18 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
                 <td style="width:10px;"><a href="index.php?view=mostrardocumento&id_archivo=<?php echo $car->id_archivo;?>"<i class="fa fa-eye"></i> Voir</a></td>
                 <td style="width:180px;">
                   <a href="index.php?view=configuraciondocumento&id_archivo=<?php echo $car->id_archivo;?>&tid=<?php echo $team->id_carpeta;?>" class="btn btn-success btn-sm btn-flat"><i class='fa fa-cloud'></i>Modifier</a>
-                  <a href="index.php?action=eliminardocumento&id_archivo=<?php echo $car->id_archivo;?>&tid=<?php echo $team->id_carpeta;?>" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-trash-o"></i> Supprimer</a>
+                  <!--a href="#" id="deleteDocumentoLink" class="btn btn-danger btn-sm btn-flat">
+                      <i class="fa fa-trash-o"></i> Supprimer
+                  </a-->
+                 
+                  <a href="#" class="btn btn-danger btn-sm btn-flat delete_document" data-id-archivo="<?php echo $car->id_archivo;?>" data-tid="<?php echo $team->id_carpeta;?>">
+                  <i class="fa fa-trash-o"></i> Supprimer
+                  </a>
+
+
+
+                 
+
                 </td>
                  <td style="width:90px;"><center><a href="index.php?view=detalledocumento&id_archivo=<?php echo $car->id_archivo;?>&tid=<?php echo $team->id_carpeta;?>" class="btn btn-info btn-sm btn-flat"><i class='fa fa-list'></i> Détail</a></center></td>
                 </tr>
@@ -92,7 +103,7 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
         <div class="box-header with-border">
           <?php
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations correctement mises à jour</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
@@ -111,13 +122,14 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
 
               <table id="example1" class="table table-bordered table-hover">
               <thead>
-              <th>Nombre del Documento</th>
-              <th>Codigo</th>
-              <th>Estante</th>
-              <th>Modulo</th>
-              <th>activo</th>
-              <th>Revisar</th>
-              <th><center>Acción</center></th>
+              <th>Nom du Document</th>
+              <th>Code</th>
+              <th>Étagère</th>
+              <th>Module</th>
+              <th>Actif</th>
+              <th>Vérifier</th>
+              <th><center>Action</center></th>
+
               </thead>
               <?php
               foreach($carpetas as $ver){
@@ -142,7 +154,7 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
         echo "</table>";
 
             }else{
-              echo "<p class='alert alert-danger'>No hay Ningun Documento Registrado dentro de este Archivador</p>";
+              echo "<p class='alert alert-danger'>Aucun document n'est enregistré dans ce classeur</p>";
             }
 
 
@@ -157,7 +169,7 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
         <div class="box-header with-border">
           <?php
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations correctement mises à jour</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
@@ -176,12 +188,13 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
 
               <table id="example1" class="table table-bordered table-hover">
               <thead>
-              <th> Numero dossier</th>
-              <th>Folio</th>
-              <th>Dirigido a</th>
-              <th>activo</th>
-              <th>Revisar</th>
-              <th><center><i class="fa fa-hourglass-start"></i> Acción</center></th>
+              <th>Numéro de dossier</th>
+              <th>n° boite archive</th>
+              <th>Adressé à</th>
+              <th>Actif</th>
+              <th>Vérifier</th>
+              <th><center><i class="fa fa-hourglass-start"></i> Action</center></th>
+
               <!-- <th><center><i class="fa fa-list"></i> Detalle</center></th> -->
               </thead>
               <?php
@@ -206,7 +219,7 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
         echo "</table>";
 
             }else{
-              echo "<p class='alert alert-danger'>No hay Ningun Documento Registrado dentro de este Archivador</p>";
+              echo "<p class='alert alert-danger'>Aucun document n'est enregistré dans ce classeur</p>";
             }
 
 
@@ -218,3 +231,53 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
   </div>
   <?php else:?>
     <?php endif;?>
+
+     <!-- Bootstrap Modal -->
+     <div class="modal fade" id="confirmDeleteDocumentoModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteDocumentoModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="confirmDeleteDocumentoModalLabel">Confirmer suppression document</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                              </div>
+                              <div class="modal-body">
+                              Etes vous sur de supprimer ce document?
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                                  <button type="button" id="confirmDeletionDocumento" class="btn btn-danger">Oui</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <script>
+       $(document).ready(function() {
+                $('.delete_document').click(function(e) {
+                    e.preventDefault();
+                    var idArchivo = $(this).data('id-archivo');
+                    var tid = $(this).data('tid');
+
+                    $('#confirmDeleteDocumentoModal').modal('show');
+    
+    $('#confirmDeletionDocumento').on('click', function() {
+        $.ajax({
+            url: 'index.php?action=eliminardocumento',
+            method: 'GET',
+            data: {id_archivo: idArchivo, tid: tid},
+            success: function(response) {
+                location.reload(); // Reload the page after successful deletion
+            },
+            error: function(xhr, status, error) {
+                console.error("Error deleting documento:", error);
+            }
+        });
+        
+        $('#confirmDeleteDocumentoModal').modal('hide');
+    });
+                });
+            });
+
+        </script>

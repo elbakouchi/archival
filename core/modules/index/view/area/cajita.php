@@ -15,9 +15,9 @@ $carpetas = PeriodoAreaData::getAllByTeamId($_GET["id_periodo"]);
         <small> </small>
       </h1>
      <!--  <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=administrador">Administrador</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <?php if($u->admin):?>
@@ -45,8 +45,8 @@ $carpetas = PeriodoAreaData::getAllByTeamId($_GET["id_periodo"]);
 
               <table class="table table-bordered table-hover">
               <thead>
-              <th>Nombre del Area / Oficina</th>
-              <th><center><i class="fa fa-hourglass-start"></i> Acción</center></th>
+              <th>Nom de la zone/du bureau</th>
+              <th><center><i class="fa fa-hourglass-start"></i> Action</center></th>
               </thead>
               <?php
               foreach($carpetas as $ver){
@@ -57,7 +57,31 @@ $carpetas = PeriodoAreaData::getAllByTeamId($_GET["id_periodo"]);
                 <td><i class="fa fa-gg"></i> <a href="./?view=carpetas&id_area_oficina=<?php echo $car->id_area_oficina;?>"> <?php echo $car->nombre; ?></a></td>
                 <td style="width:180px;">
                 <a href="index.php?view=configuracionareaoficina&id_area_oficina=<?php echo $car->id_area_oficina;?>&tid=<?php echo $team->id_periodo;?>" class="btn btn-success btn-sm btn-flat"><i class='fa fa-cog'></i>Modifier</a>
-                <a href="index.php?action=eliminarareaoficina&id_area_oficina=<?php echo $car->id_area_oficina;?>&tid=<?php echo $team->id_periodo;?>" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-trash-o"></i> Supprimer</a>
+                <a href="#" id="deleteAreaOficinaLink" class="btn btn-danger btn-sm btn-flat">
+                    <i class="fa fa-trash-o"></i> Supprimer
+                </a>
+
+                <!-- Bootstrap Modal -->
+                <div class="modal fade" id="confirmDeleteAreaOficinaModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteAreaOficinaModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmDeleteAreaOficinaModalLabel">Confirmer la suppression de cette zone/bureau</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Etes vous sûr de supprimer cette zone/bureau
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                                <button type="button" id="confirmDeletionAreaOficina" class="btn btn-danger">Oui</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 </td>
                 </tr>
                 <?php
@@ -140,7 +164,7 @@ $carpetas = PeriodoAreaData::getAllByTeamId($_GET["id_periodo"]);
               <table class="table table-bordered table-hover">
               <thead>
               <th>Nombre del Area / Oficina</th>
-              <th><center><i class="fa fa-hourglass-start"></i> Acción</center></th>
+              <th><center><i class="fa fa-hourglass-start"></i> Action</center></th>
               </thead>
               <?php
               foreach($carpetas as $ver){
@@ -167,6 +191,33 @@ $carpetas = PeriodoAreaData::getAllByTeamId($_GET["id_periodo"]);
             ?>
         </div>
       </div>
+      <script>
+        document.getElementById('deleteAreaOficinaLink').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default action
+            
+            var idAreaOficina = <?php echo json_encode($car->id_area_oficina);?>;
+            var tid = <?php echo json_encode($team->id_periodo);?>;
+            
+            $('#confirmDeleteAreaOficinaModal').modal('show');
+            
+            $('#confirmDeletionAreaOficina').on('click', function() {
+                $.ajax({
+                    url: 'index.php?action=eliminarareaoficina',
+                    method: 'GET',
+                    data: {id_area_oficina: idAreaOficina, tid: tid},
+                    success: function(response) {
+                        location.reload(); // Reload the page after successful deletion
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error deleting area of office:", error);
+                    }
+                });
+                
+                $('#confirmDeleteAreaOficinaModal').modal('hide');
+            });
+        });
+        </script>
+
     </section>
     <?php endif;?>
   </div>

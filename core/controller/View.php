@@ -18,7 +18,7 @@ class View {
 
 
 			if(View::isValid()){
-				include "core/modules/".Module::$module."/view/".$_GET['view']."/cajita.php";				
+				include "core/modules/".Module::$module."/view/".$_GET['view']."/cajita.php";
 			}else{
 				View::Error("<center><b>Informe de Javier </b>,  Formulario <b>".$_GET['view']."</b> no encontrada   !!</center>");
 				echo "<center><br> por favor vuelva a intentarlo mas tarde</center>";

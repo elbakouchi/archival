@@ -12,9 +12,9 @@
         <small></small>
       </h1>
       <!-- <ol class="breadcrumb">
-        <li><a href="index.php?view=home"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="index.php?view=home"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="#">Periodo</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <section class="content">
@@ -22,13 +22,13 @@
         <div class="box-header with-border">
           <?php
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations mises à jour avec succès</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
           <h3 class="box-title"><b>Toutes les périodes enregistrées</b></h3>
           <div class="box-tools pull-left">
-            <a href="#myModal" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nouvelle Exercice</a>
+            <a href="#myModal" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nouvel exercice</a>
             <a href="index.php?view=periodos" data-toggle="modal" class="btn btn-success btn-sm"><i class="fa fa-refresh"></i></a>
           </div>
         </div>
@@ -42,7 +42,7 @@
                   <thead>
                     <th></th>
                     <th>Période</th>
-                    <th> Gestionar</th>
+                    <th> Gérer</th>
                   </thead>
                   <?php
                   foreach($periodos as $periodo){
@@ -122,7 +122,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><i class="fa fa-arrows-h"></i><b> Registro de un Nuevo Periodo del  Gobierno</b></h4>
+                  <h4 class="modal-title"><i class="fa fa-arrows-h"></i><b> Registre d'un Nouvel Période du Gouvernement</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="index.php?action=nuevoperiodo">
@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail1" class="col-sm-3 control-label">Descripcion</label>
+                    <label for="inputEmail1" class="col-sm-3 control-label">Description</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="descripcion" name="descripcion" required onkeypress="return sololetras(event)" onpaste="return false" >
@@ -168,9 +168,9 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="index.php?view=home"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="index.php?view=home"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="#">Periodo</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol>
     </section>
 
@@ -183,7 +183,7 @@
           <?php
             // print_r($_SESSION);
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations mises à jour avec succès</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
@@ -206,7 +206,7 @@
                   <thead>
                     <th></th>
                     <th>Période</th>
-                    <!-- <th>Gestionar</th> -->
+                    <!-- <th>Gérer</th> -->
                   </thead>
                   <?php
                   foreach($periodos as $periodo){
@@ -250,7 +250,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail1" class="col-sm-3 control-label">Descripcion</label>
+                    <label for="inputEmail1" class="col-sm-3 control-label">Description</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="descripcion" name="descripcion" required onkeypress="return sololetras(event)" onpaste="return false" >
@@ -283,9 +283,9 @@
         <small></small>
       </h1>
       <!-- <ol class="breadcrumb">
-        <li><a href="index.php?view=home"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="index.php?view=home"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="#">Periodo</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <section class="content">
@@ -293,13 +293,13 @@
         <div class="box-header with-border">
           <?php
              if(isset($_SESSION["actualizar_datos"])):?>
-              <p class="alert alert-info"><i class="fa fa-check"></i> Información actualizada correctamente</p>
+              <p class="alert alert-info"><i class="fa fa-check"></i> Informations mises à jour avec succès</p>
             <?php 
             unset($_SESSION["actualizar_datos"]);
             endif; ?>
           <h3 class="box-title"><b>Toutes les périodes enregistrées</b></h3>
           <div class="box-tools pull-left">
-            <a href="#" title="Estimado encargado no puedes Registrar" alert="Estimado encargado no puedes Registrar" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nouvelle Exerciceo</a>
+            <a href="#" title="Estimado encargado no puedes Registrar" alert="Estimado encargado no puedes Registrar" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Nouvel exerciceo</a>
             <a href="index.php?view=periodos" data-toggle="modal" class="btn btn-success btn-sm"><i class="fa fa-refresh"></i></a>
           </div>
         </div>
@@ -313,7 +313,7 @@
                   <thead>
                     <th></th>
                     <th>Période</th>
-                    <th> Gestionar</th>
+                    <th> Gérer</th>
                   </thead>
                   <?php
                   foreach($periodos as $periodo){

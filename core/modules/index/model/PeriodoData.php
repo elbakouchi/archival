@@ -47,6 +47,12 @@ class PeriodoData {
 		return Model::one($query[0],new PeriodoData());
 	}
 
+	public static function getByIdAsJson($id_periodo){
+		$sql = "select * from ".self::$tablename." where id_periodo=$id_periodo";
+		$query = Executor::doit($sql);
+		return Model::json($query[0], new PeriodoData());
+	}
+
 
 
 	public static function getAll(){

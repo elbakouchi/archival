@@ -10,9 +10,9 @@
         Nouveau document
       </h1>
       <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=administrador">Administrador</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <section class="content">
@@ -21,7 +21,7 @@
           <div class="box box-info">
           </div>
           <form class="form-horizontal" method="post" action="index.php?action=nuevodocumento" role="form" enctype="multipart/form-data">
-            <?php if($u->encargado):?><small class='alert alert-success'><b><i class="fa fa-exclamation-triangle"></i> Recuerda que una vez  registrado el <b style="color: red;">Documento</b> no podra <b style="color: red;">Eliminar</b> solo se podra <b style="color: red;">Modificar</b>.</b></small><?php endif; ?> 
+            <?php if($u->encargado):?><small class='alert alert-success'><b><i class="fa fa-exclamation-triangle"></i> Recuerda que una vez  registrado el <b style="color: red;">Documento</b> no podra <b style="color: red;">Supprimer</b> solo se podra <b style="color: red;">Modificar</b>.</b></small><?php endif; ?> 
             <hr>
             <div class="form-group has-feedback has-error">
               <label for="inputEmail1" class="col-lg-3 control-label">Sélectionner un document</label>
@@ -39,7 +39,7 @@
                 </div>
             </div>
              <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-3 control-label"> Nombre pieces</label>
+              <label for="inputEmail1" class="col-lg-3 control-label"> N° boite archive</label>
                 <div class="col-lg-9">
                   <input type="text" name="folio" class="form-control" id="folio" placeholder="">
                   <span class="fa fa-barcode fa fa-instirution form-control-feedback"></span>

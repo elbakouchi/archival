@@ -49,7 +49,7 @@
                 </div>
             </div>
              <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-3 control-label"> Nombre pieces</label>
+              <label for="inputEmail1" class="col-lg-3 control-label"> N° boite archive</label>
                 <div class="col-lg-9">
                   <input type="text" name="folio"  class="form-control" id="folio" value="<?php echo $archivos->folio ?>">
                   <span class="fa fa-barcode fa fa-instirution form-control-feedback"></span>

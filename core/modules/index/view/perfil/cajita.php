@@ -65,7 +65,7 @@
                   <div class="panel-body">
             <form class="form-horizontal" method="post" action="index.php?action=perfil2" role="form">
               <div class="form-group">
-                    <label for="inputEmail1" class="col-lg-4 control-label">Nombre</label>
+                    <label for="inputEmail1" class="col-lg-4 control-label">Nom</label>
                     <div class="col-lg-8">
                       <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su Nombre" value="<?php echo $configuracion->nombre;?>" onkeypress="return sololetras(event)" onpaste="return false" onKeyUP="this.value=this.value.toUpperCase();">
                     </div>
@@ -83,7 +83,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword1" class="col-lg-4 control-label">Telefono</label>
+                    <label for="inputPassword1" class="col-lg-4 control-label">Télephone</label>
                     <div class="col-lg-8">
                       <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese el Numero Telefonico" value="<?php echo $configuracion->telefono;?>" onkeypress="return solonumeros(event);" pattern=".{9,99}" onpaste="return false" maxlength="12">
                     </div>

@@ -29,28 +29,28 @@
                 </div>
             </div>
             <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-4 control-label">Codigo</label>
+              <label for="inputEmail1" class="col-lg-4 control-label">Code</label>
                 <div class="col-lg-8">
-                 <input type="text" name="codigo"  class="form-control" id="codigo" placeholder="Codigo del Archivador" value="<?php echo $carpetas->codigo; ?>">
+                 <input type="text" name="codigo"  class="form-control" id="codigo" placeholder="Code del Archivador" value="<?php echo $carpetas->codigo; ?>">
                   <span class="fa fa-barcode fa fa-instirution form-control-feedback"></span>
                 </div>
             </div>
              <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-4 control-label">Estante</label>
+              <label for="inputEmail1" class="col-lg-4 control-label">Etagère</label>
                 <div class="col-lg-8">
-                  <input type="text" name="estante"  class="form-control" id="estante" placeholder="Estante donde que se encuentra" value="<?php echo $carpetas->estante; ?>">
+                  <input type="text" name="estante"  class="form-control" id="estante" placeholder="Etagère donde que se encuentra" value="<?php echo $carpetas->estante; ?>">
                   <span class="fa fa-list-alt fa fa-instirution form-control-feedback"></span>
                 </div>
             </div>
             <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-4 control-label">Modulo</label>
+              <label for="inputEmail1" class="col-lg-4 control-label">Module</label>
                 <div class="col-lg-8">
                   <input type="text" name="modulo"  class="form-control" id="modulo" placeholder="en que modulo se encuentra" value="<?php echo $carpetas->modulo; ?>">
                   <span class="fa fa-list fa fa-instirution form-control-feedback"></span>
                 </div>
             </div>
             <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-4 control-label">Descripcion</label>
+              <label for="inputEmail1" class="col-lg-4 control-label">Description</label>
                 <div class="col-lg-8">
                   <textarea class="form-control" name="descripcion" id="descripcion"><?php echo $carpetas->descripcion; ?></textarea>
                   <span class="fa fa-user fa fa-instirution form-control-feedback"></span>

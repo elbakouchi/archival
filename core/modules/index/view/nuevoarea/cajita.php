@@ -5,9 +5,9 @@
         <small></small>
       </h1>
       <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Début</a></li>
         <li><a href="index.php?view=administrador">Administrador</a></li>
-        <li class="active">Activo</li>
+        <li class="active">Actif</li>
       </ol> -->
     </section>
     <section class="content">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="form-group has-feedback has-error">
-              <label for="inputEmail1" class="col-lg-4 control-label">Descripcion</label>
+              <label for="inputEmail1" class="col-lg-4 control-label">Description</label>
                 <div class="col-lg-8">
                   <textarea class="form-control" name="detalle" id="detalle" placeholder="Dar un Pequeño detalle"></textarea>
                   <span class="fa fa-list fa fa-instirution form-control-feedback"></span>

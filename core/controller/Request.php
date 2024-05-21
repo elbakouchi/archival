@@ -8,7 +8,7 @@
 class Request {
 	function __get($value){
 		if(!$this->exist($value)){
-			print "<b>REQUEST ERROR</b> El parametro <b>$value</b> que intentas llamar no existe!";
+			print "<b>ERREUR DE REQUÊTE</b> Le paramètre <b>$value</b> que vous essayez d'appeler n'existe pas !";
 			die();
 		}
 		return $_REQUEST[$value];
