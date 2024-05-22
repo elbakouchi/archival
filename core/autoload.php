@@ -39,6 +39,6 @@ include "controller/Form.php";
 // 22/05/2024
 
 // Manually include Composer's autoloader
-require '..\\vendor\\autoload.php'; 
+require 'C:\\xampp\\htdocs\\archival\\vendor\\autoload.php'; 
 
 ?>
