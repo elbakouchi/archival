@@ -44,7 +44,11 @@ class DocumentoData {
 		return Model::one($query[0],new DocumentoData());
 	}
 
-
+	public static function getLast10(){
+		$sql = "select * from ".self::$tablename." order by fecha desc limit 10";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new DocumentoData());
+	}
 
 	public static function getAll(){
 		$sql = "select * from ".self::$tablename." order by fecha asc";

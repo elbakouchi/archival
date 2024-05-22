@@ -29,7 +29,7 @@
             <div class="col-md-3">
 
             <select name="id_usuario" class="form-control">
-              <option value="">--  REPORTE POR TODOS --</option>
+              <option value="">-- RAPPORT DE TOUS --</option>
               <!-- <?php foreach($clients as $p):?>
               <option value="<?php echo $p->cliente_id;?>"><?php if($p->cliente_id!=null){echo $p->getCliente()->nombre." ".$p->getCliente()->apellido;}else{ echo ""; }  ?></option>
               <?php endforeach; ?> -->
@@ -94,13 +94,13 @@
   <thead>
 
     <th>Nom</th>
-    <th>Apellido</th>
-    <th>Dni</th>
-    <th>Télephone</th>
-    <th>Email</th>
-    <th>Estado</th>
-    <th>Area\Oficina</th>
-    <th>Fecha</th>
+ <th>Nom de famille</th>
+ <th>Dni</th>
+ <th>Téléphone</th>
+ <th>E-mail</th>
+ <th>Statut</th>
+ <th>Zone\Bureau</th>
+ <th>Date</th>
   </thead>
 <?php foreach($operations as $operation):?>
   <tr>

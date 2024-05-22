@@ -8,9 +8,9 @@
       <div class="box">
         <div class="box-header with-border">
           <div class="box-tools pull-right">
-                <a href="<?php echo '/export/excel.php?category='.$_GET['category'].'&sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date et catégorie</a>
-                <a href="<?php echo '/export/excel.php?sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-info btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date</a>
-                <a href="<?php echo '/export/excel.php' ?>" target="_blank" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter tout</a>
+                <a href="<?php echo 'api/export/spreadsheet.php?category='.$_GET['category'].'&sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date et catégorie</a>
+                <a href="<?php echo 'api/export/spreadsheet.php?sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-info btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date</a>
+                <a href="<?php echo '/export/spreadsheet.php' ?>" target="_blank" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter tout</a>
             </div>
         </div>
         <hr/>
@@ -21,7 +21,7 @@
               <div class="col-md-2">
                 <select name="id_periodo" id="id_periodo" class="form-control">
                   <option value="0">--  Périodes --</option>
-              <?php $periodos = PeriodoData::getAll(); ?>
+                  <?php $periodos = PeriodoData::getAll(); ?>
                   <?php if(count($periodos)>0) :?>
                     <?php  foreach($periodos as $periodo): ?>
                       <option value="<?php echo $periodo->id_periodo;?>" <?php if(isset($_GET['id_periodo']) && $_GET['id_periodo'] == $periodo->id_periodo) echo 'selected=true';?> ><?php echo $periodo->nombre; ?></option>
@@ -56,7 +56,7 @@
             <div class="row">
   <div class="col-md-12 table-responsive">
     <?php if(isset($_GET["sd"]) && isset($_GET["ed"]) ):?>
-<?php if($_GET["sd"]!=""&&$_GET["ed"]!=""):?>
+      <?php if($_GET["sd"]!=""&&$_GET["ed"]!=""):?>
       <?php 
           $operations = array();
           if(isset($_GET['category']) && $_GET['category']!="0" &&  $_GET['category']!="undefined"){
@@ -70,7 +70,7 @@
           } 
        ?>
        <?php if(count($operations)>0):?>
-        <?php $supertotal = 0; ?>
+    <?php $supertotal = 0; ?>
 <table class="table table-bordered">
   <thead>
 
@@ -79,7 +79,7 @@
     <th>Description</th>
     <th>Emplacement</th>
     <th>n° boite archive</th>
-    <th>Adressé à</th>
+    <th>Objet</th>
     <th>Assisté</th>
     <th>Voir</th>
     <th>État</th>
@@ -112,29 +112,29 @@
        <?php else:
        // si no hay operaciones
        ?>
-<script>
-  $("#wellcome").hide();
-</script>
-<div class="jumbotron">
-<h2>Il n'y a pas d'opérations</h2>
-<p>La plage de dates sélectionnée n'a donné aucun résultat d'opérations.</p>
-</div>
+      <script>
+        $("#wellcome").hide();
+      </script>
+      <div class="jumbotron">
+      <h2>Il n'y a pas d'opérations</h2>
+      <p>La plage de dates sélectionnée n'a donné aucun résultat d'opérations.</p>
+      </div>
 
        <?php endif; ?>
-<?php else:?>
-<script>
-  $("#wellcome").hide();
-</script>
-<div class="jumbotron">
-<h2>Dates Incorrectes</h2>
-<p>Il est possible que vous n'ayez pas sélectionné une plage de dates, ou que la plage sélectionnée soit incorrecte.</p>
+      <?php else:?>
+        <script>
+          $("#wellcome").hide();
+        </script>
+        <div class="jumbotron">
+        <h2>Dates Incorrectes</h2>
+        <p>Il est possible que vous n'ayez pas sélectionné une plage de dates, ou que la plage sélectionnée soit incorrecte.</p>
 
-</div>
-<?php endif;?>
+        </div>
+        <?php endif;?>
 
-    <?php endif; ?>
-  </div>
-</div>
+            <?php endif; ?>
+          </div>
+        </div>
         </div>
       </div>
     </section>
@@ -161,19 +161,8 @@
         selectedElement.value = event.target.options[event.target.selectedIndex].text;
     }
 
-    //document.getElementById('category').addEventListener('change', function() {
-     //   var selectedCategoryName = this.text;
-      //  console.log(selectedCategoryName);
-        // Assuming you have a way to fetch categories based on the selected period ID
-        // This could involve AJAX call to a server-side script that returns the categories for the selected period
-        //var selectedElement = document.getElementById("categoryName");
-        //selectedElement.value = selectedCategoryName;
-    //});
-
     function fetchCategories(periodId) {
-        // Example using Fetch API to get categories for the selected period
-        // Replace '/path/to/script' with the actual path to your server-side script
-        fetch('/fetch_categories.php?period_id=' + periodId)
+        fetch('api/category/get.php?period_id=' + periodId)
           .then(response => response.json())
           .then(data => {
                 var selectElement = document.getElementById('category');

@@ -24,7 +24,7 @@
             <div class="col-md-3">
 
             <select name="id_archivo" class="form-control">
-              <option value="">--  REPORTE POR TODOS --</option>
+              <option value="">-- RAPPORT DE TOUS --</option>
               <!-- <?php foreach($clients as $p):?>
               <option value="<?php echo $p->cliente_id;?>"><?php if($p->cliente_id!=null){echo $p->getCliente()->nombre." ".$p->getCliente()->apellido;}else{ echo ""; }  ?></option>
               <?php endforeach; ?> -->
@@ -145,3 +145,58 @@
       </div>
     </section>
   </div>
+
+
+  <script>
+    window.onload = function() {
+      document.getElementById('id_periodo').addEventListener('change', function() {
+      var selectedPeriodId = this.value;
+      console.log(selectedPeriodId);
+      // Assuming you have a way to fetch categories based on the selected period ID
+      // This could involve AJAX call to a server-side script that returns the categories for the selected period
+      fetchCategories(selectedPeriodId);
+    });
+    document.getElementById('category').addEventListener('change', getCategoryName);
+    function getCategoryName(event) {
+        // Log the selected option's text to the console
+        console.log(event.target.options[event.target.selectedIndex].text);
+
+        // Get the hidden input element by ID
+        var selectedElement = document.getElementById("categoryName");
+
+        // Set the hidden input's value to the selected option's text
+        selectedElement.value = event.target.options[event.target.selectedIndex].text;
+    }
+
+    //document.getElementById('category').addEventListener('change', function() {
+     //   var selectedCategoryName = this.text;
+      //  console.log(selectedCategoryName);
+        // Assuming you have a way to fetch categories based on the selected period ID
+        // This could involve AJAX call to a server-side script that returns the categories for the selected period
+        //var selectedElement = document.getElementById("categoryName");
+        //selectedElement.value = selectedCategoryName;
+    //});
+
+    function fetchCategories(periodId) {
+        // Example using Fetch API to get categories for the selected period
+        // Replace '/path/to/script' with the actual path to your server-side script
+        fetch('/fetch_categories.php?period_id=' + periodId)
+          .then(response => response.json())
+          .then(data => {
+                var selectElement = document.getElementById('category');
+                selectElement.innerHTML = ''; // Clear existing options
+                // Populate the select element with new options
+                var emptyOption = document.createElement('option');
+                emptyOption.text = "-- Choisir une catégorie --";
+                emptyOption.value = "0";
+                selectElement.add(emptyOption);
+                data.forEach(category => {
+                    var option = document.createElement('option');
+                    option.value = category.id_carpeta;
+                    option.text = category.nombre;
+                    selectElement.add(option);
+                });
+            })
+       .catch(error => console.error('Error fetching categories:', error));
+    }}
+  </script>

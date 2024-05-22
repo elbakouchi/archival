@@ -190,7 +190,7 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
               <thead>
               <th>Numéro de dossier</th>
               <th>n° boite archive</th>
-              <th>Adressé à</th>
+              <th>Objet</th>
               <th>Actif</th>
               <th>Vérifier</th>
               <th><center><i class="fa fa-hourglass-start"></i> Action</center></th>
@@ -253,30 +253,30 @@ $carpetas = CarpetaArchivoData::getAllByTeamId($_GET["id_carpeta"]);
                       </div>
                   </div>
 
-                  <script>
-       $(document).ready(function() {
-                $('.delete_document').click(function(e) {
-                    e.preventDefault();
-                    var idArchivo = $(this).data('id-archivo');
-                    var tid = $(this).data('tid');
+        <script>
+                  $(document).ready(function() {
+                              $('.delete_document').click(function(e) {
+                                  e.preventDefault();
+                                  var idArchivo = $(this).data('id-archivo');
+                                  var tid = $(this).data('tid');
 
-                    $('#confirmDeleteDocumentoModal').modal('show');
-    
-    $('#confirmDeletionDocumento').on('click', function() {
-        $.ajax({
-            url: 'index.php?action=eliminardocumento',
-            method: 'GET',
-            data: {id_archivo: idArchivo, tid: tid},
-            success: function(response) {
-                location.reload(); // Reload the page after successful deletion
-            },
-            error: function(xhr, status, error) {
-                console.error("Error deleting documento:", error);
-            }
-        });
-        
-        $('#confirmDeleteDocumentoModal').modal('hide');
-    });
+                                  $('#confirmDeleteDocumentoModal').modal('show');
+                  
+                  $('#confirmDeletionDocumento').on('click', function() {
+                      $.ajax({
+                          url: 'index.php?action=eliminardocumento',
+                          method: 'GET',
+                          data: {id_archivo: idArchivo, tid: tid},
+                          success: function(response) {
+                              location.reload(); // Reload the page after successful deletion
+                          },
+                          error: function(xhr, status, error) {
+                              console.error("Error deleting documento:", error);
+                          }
+                      });
+                      
+                      $('#confirmDeleteDocumentoModal').modal('hide');
+                  });
                 });
             });
 

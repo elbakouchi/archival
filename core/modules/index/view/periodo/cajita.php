@@ -71,31 +71,9 @@ $carpetas = PeriodoCarpetaData::getAllByTeamId($_GET["id_periodo"]);
                   if($_SESSION["admin_id"]!=""){
                   $u = UserData::getById($_SESSION["admin_id"]);
                   }?>
-                  <a href="#" id="deleteLink" class="btn btn-danger btn-sm btn-flat">
-                      <i class="fa fa-trash-o"></i> Supprimer
+                  <a href="#" class="btn btn-danger btn-sm btn-flat delete_document" data-id-carpeta="<?php echo $car->id_carpeta;?>">
+                    <i class="fa fa-trash-o"></i> Supprimer
                   </a>
-
-                  <!-- Bootstrap Modal -->
-                  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                              <div class="modal-header">
-                                  <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmer la suppression</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                  </button>
-                              </div>
-                              <div class="modal-body">
-                                  Etes vous sur de supprimer cette catégorie?
-                              </div>
-                              <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
-                                  <button type="button" id="confirmDeletion" class="btn btn-danger">Oui</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
- 
                 <?php else:?>
                 <?php endif;?>
                 </td>
@@ -114,32 +92,50 @@ $carpetas = PeriodoCarpetaData::getAllByTeamId($_GET["id_periodo"]);
             ?>
         </div>
       </div>
-    </section>
+      <!-- Bootstrap Modal -->
+      <div class="modal fade" id="confirmDeleteDocumentoModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmer la suppression</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      Etes vous sur de supprimer cette catégorie?
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                      <button type="button" id="confirmDeletion" class="btn btn-danger">Oui</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+</section>
     <script>
-document.getElementById('deleteLink').addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent the default action (which would navigate away)
-    
-    var idCarpeta = <?php echo json_encode($car->id_carpeta);?>;
-    var tid = <?php echo json_encode($team->id_periodo);?>;
-    
-    $('#confirmDeleteModal').modal('show'); // Show the modal
-    
-    $('#confirmDeletion').on('click', function() {
-        $.ajax({
-            url: 'index.php?action=eliminarcarpetas',
-            method: 'GET',
-            data: {id_carpeta: idCarpeta, tid: tid},
-            success: function(response) {
-                location.reload(); // Reload the page after successful deletion
-            },
-            error: function(xhr, status, error) {
-                console.error("Erreur suppression du dossier:", error);
-            }
+      $(document).ready(function() {
+        $('.delete_document').click(function(e) {
+            e.preventDefault();
+            var idCarpeta = $(this).data('id-carpeta');
+            $('#confirmDeleteDocumentoModal').modal('show');
+            $('#confirmDeletion').on('click', function() {
+                $.ajax({
+                    url: 'index.php?action=eliminarcarpetas',
+                    method: 'GET',
+                    data: {id_carpeta: idCarpeta},
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error deleting documento:", error);
+                    }
+                });
+                $('#confirmDeleteDocumentoModal').modal('hide');
+            });
+          });
         });
-        
-        $('#confirmDeleteModal').modal('hide'); // Hide the modal after deletion
-    });
-});
-</script>
+
+        </script>
 
   </div>

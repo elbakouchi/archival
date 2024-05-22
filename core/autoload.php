@@ -35,4 +35,10 @@ include "controller/Lb.php";
 // 26 diciembre 2014
 include "controller/Form.php";
 // include "controller/class.upload.php";
+
+// 22/05/2024
+
+// Manually include Composer's autoloader
+require 'C:\\Users\\dell\\projects\\archives\\folderfile\\folderfile\\vendor\\autoload.php'; 
+
 ?>

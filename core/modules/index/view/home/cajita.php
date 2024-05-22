@@ -26,49 +26,7 @@
           </div>
           <!-- /.info-box -->
       </div>
-      <!-- /.col -->
-      <!--div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-folder-open"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Dossiers</span>
-              <span class="info-box-number"><?#php echo count(CarpetaData::getAll());?></span-->
-              <!-- <a href="./?view=detalleproceso" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a> -->
-            <!--/div-->
-            <!-- /.info-box-content -->
-          <!--/div-->
-          <!-- /.info-box -->
-      <!--/div-->
-      <!-- /.col -->
-      <!-- fix for small devices only -->
-      <!--div class="clearfix visible-sm-block"></div-->
-      <!--div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box"-->
-            <!-- <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span> -->
-            <!--span class="info-box-icon bg-green"><i class="fa fa-file-text"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text">Documents</span>
-              <span class="info-box-number"><?#php echo count(DocumentoData::getAll());?></span-->
-              <!-- <a href="./?view=cliente" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a> -->
-            <!--/div-->
-            <!-- /.info-box-content -->
-          <!--/div-->
-          <!-- /.info-box -->
-      <!--/div-->
-      <!-- /.col -->
-      <!--div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-user-secret"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Utilisateurs</span>
-              <span class="info-box-number"><?#php echo count(UserData::getAll());?></span-->
-              <!-- <a href="./?view=administrador" class="small-box-footer">Ver mas <i class="fa fa-arrow-circle-right"></i></a> -->
-            <!--/div-->
-            <!-- /.info-box-content -->
-          <!--/div-->
-          <!-- /.info-box -->
+      
       </div-->
       <!-- /.col -->
     </div>
@@ -79,7 +37,7 @@
     
  <!-- ------------------------------------------------------TERMINA LA PRIMERA COLUMNA -------->
  <!-- ------------------------------------------------INICIA LA SEGUNDA COLUMNA------------ -->
-      <section class="col-xs-8">
+      <section class="col-sm-8 col-xs-8">
         <!-- Map box -->
           <div class="box box-solid">
             <div class="box-header">
@@ -118,15 +76,28 @@
           </div>
           <!-- /.box -->
       </section>
-      <!--section class="col-xs-4"-->
-        <!-- Map box -->
-          <!--div class="box box-danger">
-            <div class="box-header">
-              <img src="storage/institucion/logolobosinfondo.png" class="img-responsive" alt="">
+      <?php  $operations = DocumentoData::getLast10(); ?>
+      <section class="col-sm-4 col-xs-4">
+          <div>      
+              <table class="table table-bordered">
+              <thead>
+                <th>Document</th>
+                <th>Date</th>
+                <th>Voir</th>
+              </thead>
+              <?php foreach($operations as $operation):?>
+                <tr>
+                  <td><?php echo ($operation->nombre_documento);?></td>
+                  <td><?php echo $operation->fecha;?></td>
+                  <td><a target="_blank" href="index.php?view=mostrardocumento&id_archivo=<?php echo $operation->id_archivo;?>"><i class="fa fa-eye"></i> Voir</a></td>
+                </tr>
+              <?php endforeach;?>
+              </table>
+
             </div>
-          </div-->
+          </div>
           <!-- /.box -->
-      <!--/section-->
+      </section>
   <!-- ---------------------------------------------------------FINAL DE LA SEGUNDA COLUMNA--- -->
     </div>
   </section>
