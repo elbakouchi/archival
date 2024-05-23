@@ -6,47 +6,69 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 
-function getAllByDate($pdo, $start, $end){
-    $sql = "SELECT a.* FROM archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE DATE(fecha) >=? AND DATE(fecha) <=? AND activo=1 ORDER BY fecha DESC";
+$tablename = "archivo";
+
+function getAllByDate2($pdo, $start, $end){
+    $sql = "SELECT a.*  FROM archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE DATE(fecha) >=? AND DATE(fecha) <=? AND activo=1 ORDER BY fecha DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$start, $end]);
-    return $stmt->fetchAll();
+    return $stmt->fetchObject("DocumentoData");
 }
 
-function getAllByDateAndCarpeta($pdo, $carpeta_id, $start, $end){
+function getAllByDateAndCarpeta2($pdo, $carpeta_id, $start, $end){
     $sql = "SELECT a.* FROM archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id =? AND DATE(fecha) >=? AND DATE(fecha) <=? AND activo=1 ORDER BY fecha DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$carpeta_id, $start, $end]);
-    return $stmt->fetchAll();
+    return $stmt->fetchObject(DocumentoData);
+}
+
+function getAllByDateOfficial($start,$end){
+    $sql = "select * from ". $tablename ." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo=1 order by fecha desc";
+    if($start == $end){
+     $sql = "select * from ". $tablename ." where date(fecha) = \"$start\" and activo=1 order by fecha desc";
+    }
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new DocumentoData());
+}
+
+function getAllByDateAndCarpeta($carpeta_id, $start, $end){
+    $sql = "select a.* from ". $tablename ." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and  date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo=1 order by fecha desc";
+    if($start == $end){
+     $sql = "select a.* from ". $tablename ." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and date(fecha) = \"$start\" and activo=1 order by fecha desc";
+    }
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new DocumentoData());
 }
 
 $pdo = Database::getPDO();
 
 if(isset($_GET['category']) && $_GET['category']!= "0" && $_GET['category']!= "undefined"){
-    $documents = getAllByDateAndCarpeta($pdo, $_GET['category'], $_GET["sd"], $_GET["ed"]);
+    $documents = getAllByDateAndCarpeta2($_GET['category'], $_GET["sd"], $_GET["ed"]); //getAllByDateAndCarpeta($pdo, $_GET['category'], $_GET["sd"], $_GET["ed"]);
 } else {
-    $documents = getAllByDate($pdo, $_GET["sd"], $_GET["ed"]);
+    $documents = getAllByDate2($pdo,$_GET["sd"], $_GET["ed"]); //getAllByDate($pdo, $_GET["sd"], $_GET["ed"]);
 }
 
 $data = [];
 foreach($documents as $document) {
+    var_dump($document);
     $status;
-    if($document['activo']) {$status ='Actif';}
-    elseif($document['perdido']) {$status='Perdu';}
+    if($document->activo) {$status ='Actif';}
+    elseif($document->perdido) {$status='Perdu';}
     else {$status='Inactif';}
-    //$user;
-    //if($operation->usuario_id!=null){$user = $operation->getUsuario()->nombre." ".$operation->getUsuario()->apellido;}else{ $user ""; } 
-    $lineData = array($document['nombre_documento'], $document['descripcion'], $document['ubicacion'], $document['folio'], $document['responsable'], $status, $document['fecha']);
+    $user;
+    if($document->usuario_id!=null){$user = $document->getUsuario()->nombre." ".$document->getUsuario()->apellido;}else{ $user = ""; } 
+    $lineData = array($document->nombre_documento, $document->descripcion, $document->ubicacion, $document->folio, $user, $status, $document->fecha);
     array_push($data, $lineData);
 }
 
+die();
 $headers = [
    'Document',
    'Description',
    'Emplacement',
    'n° boite archive',
    'Objet',
- //  'Assisté',
+   'Créé par',
    'État',
    'Date'
 ];

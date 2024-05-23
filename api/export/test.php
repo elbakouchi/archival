@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 
 function getAllByDate($pdo, $start, $end){
-    $sql = "select a.* from carpeta a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE date(fecha) >= ? and date(fecha) <= ? and activo=1 order by fecha desc";
+    $sql = "select a.* from archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE date(fecha) >= ? and date(fecha) <= ? and activo=1 order by fecha desc";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$start, $end]);
     return $stmt->fetchAll();
@@ -51,19 +51,25 @@ $headers = [
    'Emplacement',
    'n° boite archive',
    'Objet',
-   'Assisté',
+   'Nom de fichier',
    'État',
    'Date'
 ];
-$fileName = 'downloaded_file.xlsx';
+$fileName = 'export-documents-'. date('Y-m-d-H-m-s') . '.xlsx';
 
 // Create a new Spreadsheet object
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
+// Set the headers
+// Adjusting the loop to start from the second row (assuming headers are in the first row)
+for ($col = 0, $colCount = count($headers); $col < $colCount; ++$col) {
+    $sheet->setCellValue(sprintf('%s1', chr(65 + $col)), $headers[$col]);
+}
+
 // Populate the sheet with data
 // Correctly using setCellValue for each cell
-for ($row = 0, $rowCount = count($data); $row < $rowCount; ++$row) {
+for ($row = 1, $rowCount = count($data); $row < $rowCount; ++$row) {
     for ($col = 0, $colCount = count($data[$row]); $col < $colCount; ++$col) {
         //echo "row: $row<br>";
         $cellAddress = sprintf('%s%d', chr(65 + $col), $row + 1); // Convert column index to letter
@@ -72,11 +78,7 @@ for ($row = 0, $rowCount = count($data); $row < $rowCount; ++$row) {
 }
 
 
-// Set the headers
-// Adjusting the loop to start from the second row (assuming headers are in the first row)
-for ($col = 0, $colCount = count($headers); $col < $colCount; ++$col) {
-    $sheet->setCellValue(sprintf('%s1', chr(65 + $col)), $headers[$col]);
-}
+
 // Send the file to the browser for download
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment; filename="'. urlencode($fileName). '"');
