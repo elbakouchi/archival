@@ -6,17 +6,17 @@ class Database {
 
     public function __construct(){
         $this->user = "root"; // Ensure this matches your MySQL username
-        $this->pass = "root"; // Ensure this matches your MySQL password
+        $this->pass = ""; // Ensure this matches your MySQL password
         $this->host = "localhost";
         $this->ddbb = "repositorio";
-		$this->port = '3307';
+		$this->port = '3306';
         $this->charset = 'utf8mb4';
     }
 
     function connect(){
 		$dsn = 'mysql:host=localhost;port=3307;dbname=repositorio;charset=utf8mb4';
 		$username = 'root';
-		$password = 'root';
+		$password = '';
 
 		try {
 			$pdo = new PDO($dsn, $username, $password);
