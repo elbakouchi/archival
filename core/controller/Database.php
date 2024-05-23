@@ -14,7 +14,7 @@ class Database {
     }
 
     function connect(){
-		$dsn = 'mysql:host=localhost;port=3307;dbname=repositorio;charset=utf8mb4';
+		$dsn = 'mysql:host=localhost;port=3306;dbname=repositorio;charset=utf8mb4';
 		$username = 'root';
 		$password = '';
 
@@ -24,7 +24,7 @@ class Database {
 			die("Connection failed: ". $e->getMessage());
 		}
 
-		//$con = new PDO('mysql:host=localhost;port=3307;dbname=repositorio', 'root', 'root');
+		//$con = new PDO('mysql:host=localhost;port=3306;dbname=repositorio', 'root', 'root');
         $con = new mysqli($this->host,$this->user,$this->pass,$this->ddbb, $this->port);
         return $con;
     }
