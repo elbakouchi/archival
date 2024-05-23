@@ -9,14 +9,15 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 
 function getAllByDate($pdo, $start, $end){
-    $sql = "select a.* from archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE date(fecha) >= ? and date(fecha) <= ? and activo=1 order by fecha desc";
+    $sql = " select a.* from archivo a WHERE date(fecha) >= ? and date(fecha) <= ? order by fecha desc ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$start, $end]);
     return $stmt->fetchAll();
 }
 
 function getAllByDateAndCarpeta($pdo, $carpeta_id, $start, $end){
-    $sql = "select a.* from archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ? and  date(fecha) >= ? and date(fecha) <= ? and activo=1 order by fecha desc";
+    $sql =  " select a.* from archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id "
+         .  " WHERE c.carpeta_id = ? and  date(fecha) >= ? and date(fecha) <= ? order by fecha desc ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$carpeta_id, $start, $end]);
     return $stmt->fetchAll();
@@ -35,7 +36,7 @@ if(isset($_GET['category']) && $_GET['category']!= "0" && $_GET['category']!= "u
 $data = [];
 
 foreach($documents as $document) {
-    //var_dump($document);
+    //var_dump($document['otros']);
     $status;
     if($document['activo']){$status ='Actif';}
     elseif($document['perdido']){$status='Perdu';}
@@ -43,8 +44,8 @@ foreach($documents as $document) {
     $lineData = array($document['nombre_documento'], $document['descripcion'], $document['ubicacion'], $document['folio'], $document['responsable'], $document['otros'], $status, $document['fecha'] );
     array_push( $data , $lineData );
 }
-
-
+//var_dump($data);
+//die();
 $headers = [
    'Document',
    'Description',
@@ -69,14 +70,15 @@ for ($col = 0, $colCount = count($headers); $col < $colCount; ++$col) {
 
 // Populate the sheet with data
 // Correctly using setCellValue for each cell
-for ($row = 1, $rowCount = count($data); $row < $rowCount; ++$row) {
+for ($row = 0, $rowCount = count($data); $row < $rowCount; ++$row) {
     for ($col = 0, $colCount = count($data[$row]); $col < $colCount; ++$col) {
         //echo "row: $row<br>";
-        $cellAddress = sprintf('%s%d', chr(65 + $col), $row + 1); // Convert column index to letter
+        $cellAddress = sprintf('%s%d', chr(65 + $col), $row + 2); // Convert column index to letter
+       // echo "cellAddress:", $cellAddress;
         $sheet->setCellValue($cellAddress, $data[$row][$col]);
     }
 }
-
+//die();
 
 
 // Send the file to the browser for download
