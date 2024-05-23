@@ -8,9 +8,9 @@
       <div class="box">
         <div class="box-header with-border">
           <div class="box-tools pull-right">
-                <a href="<?php echo 'api/export/spreadsheet.php?category='.$_GET['category'].'&sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date et catégorie</a>
-                <a href="<?php echo 'api/export/spreadsheet.php?sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-info btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date</a>
-                <a href="<?php echo '/export/spreadsheet.php' ?>" target="_blank" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter tout</a>
+                <a href="<?php echo 'api/export/documents.php?category='.$_GET['category'].'&sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date et catégorie</a>
+                <a href="<?php echo 'api/export/documents.php?sd='.$_GET["sd"].'&ed='.$_GET["ed"]; ?>" target="_blank" class="btn btn-info btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter par date</a>
+                <!--a href="<#?php echo '/export/documents.php' ?#>" target="_blank" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-file-excel-o"></i> Exporter tout</a-->
             </div>
         </div>
         <hr/>
@@ -41,10 +41,10 @@
             </div>
            
             <div class="col-md-2">
-            <input type="date" name="sd" value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
+              <input type="date" name="sd" value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
             </div>
             <div class="col-md-2">
-            <input type="date" name="ed" value="<?php if(isset($_GET["ed"])){ echo $_GET["ed"]; }?>" class="form-control">
+              <input type="date" name="ed" value="<?php if(isset($_GET["ed"])){ echo $_GET["ed"]; }?>" class="form-control">
             </div>
 
             <div class="col-md-2">
