@@ -55,11 +55,11 @@
             </form>
             <div class="row">
   <div class="col-md-12 table-responsive">
-    <?php if(isset($_GET["sd"]) && isset($_GET["ed"]) ):?>
+    <?php if(isset($_GET["sd"]) && isset($_GET["ed"] && !empty($_GET["sd"]) && !empty($_GET["ed"])) ):?>
       <?php if($_GET["sd"]!=""&&$_GET["ed"]!=""):?>
       <?php 
           $operations = array();
-          if(isset($_GET['category']) && $_GET['category']!="0" &&  $_GET['category']!="undefined"){
+          if(isset($_GET['category']) && !empty($_GET['category']) && $_GET['category']!="0" &&  $_GET['category']!="undefined"){
             $operations = DocumentoData::getAllByDateAndCarpeta($_GET['category'],$_GET["sd"],$_GET["ed"],2);
           }
           elseif( !isset($_GET["id_archivo"]) || $_GET["id_archivo"]==""){
