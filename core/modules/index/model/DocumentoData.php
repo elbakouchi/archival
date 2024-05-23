@@ -116,7 +116,7 @@ class DocumentoData {
 	}
 	// --------------------------------REPORTE DOCUMENTOS ACTIVOS
 	public static function getAllByDateOfficial($start,$end){
-		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo=1 order by fecha desc";
+		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" order by fecha desc";
 				if($start == $end){
 				 $sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" and activo=1 order by fecha desc";
 				}
@@ -125,7 +125,7 @@ class DocumentoData {
 	}
 
 	public static function getAllByDateAndCarpeta($carpeta_id, $start, $end){
-		$sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and  date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo=1 order by fecha desc";
+		$sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and  date(fecha) >= \"$start\" and date(fecha) <= \"$end\" order by fecha desc";
 				if($start == $end){
 				 $sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and date(fecha) = \"$start\" and activo=1 order by fecha desc";
 				}
