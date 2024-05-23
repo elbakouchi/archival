@@ -5,18 +5,16 @@ class Database {
     public static $pdo;
 
     public function __construct(){
-        $this->user = "archival"; // Ensure this matches your MySQL username
-        $this->pass = "lavishStyle"; // Ensure this matches your MySQL password
+        $this->user = "root"; // Ensure this matches your MySQL username
+        $this->pass = "root"; // Ensure this matches your MySQL password
         $this->host = "localhost";
         $this->ddbb = "repositorio";
-		$this->port = '3306';
+		$this->port = '3307';
         $this->charset = 'utf8mb4';
     }
 
     function connect(){
 		$dsn = 'mysql:host=localhost;port=3306;dbname=repositorio;charset=utf8mb4';
-		$username = 'root';
-		$password = '';
         $con = new mysqli($this->host,$this->user,$this->pass,$this->ddbb, $this->port);
         return $con;
     }
