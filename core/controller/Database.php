@@ -5,8 +5,8 @@ class Database {
     public static $pdo;
 
     public function __construct(){
-        $this->user = "root"; // Ensure this matches your MySQL username
-        $this->pass = ""; // Ensure this matches your MySQL password
+        $this->user = "archival"; // Ensure this matches your MySQL username
+        $this->pass = "lavishStyle"; // Ensure this matches your MySQL password
         $this->host = "localhost";
         $this->ddbb = "repositorio";
 		$this->port = '3306';
@@ -17,14 +17,6 @@ class Database {
 		$dsn = 'mysql:host=localhost;port=3306;dbname=repositorio;charset=utf8mb4';
 		$username = 'root';
 		$password = '';
-
-		try {
-			$pdo = new PDO($dsn, $username, $password);
-		} catch (PDOException $e) {
-			die("Connection failed: ". $e->getMessage());
-		}
-
-		//$con = new PDO('mysql:host=localhost;port=3306;dbname=repositorio', 'root', 'root');
         $con = new mysqli($this->host,$this->user,$this->pass,$this->ddbb, $this->port);
         return $con;
     }
