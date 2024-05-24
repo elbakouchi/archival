@@ -6,29 +6,46 @@ require 'C:\\Users\\dell\\projects\\archives\\folderfile\\folderfile\\core\\auto
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+$pdo = Database::getPDO();
 
+$active = (isset($_GET['active']))? $_GET['active'] : "";
 
-function getAllByDate($pdo, $start, $end){
-    $sql = " select a.* from archivo a WHERE date(fecha) >= ? and date(fecha) <= ? order by fecha desc ";
+function getAllByDate($pdo, $start, $end, $active){
+    $sql = " select a.* from archivo a WHERE date(fecha) >= ? and date(fecha) <= ? ";
+    if( !empty( $active ) ) {
+        if($active=='lost'){
+            $sql .= " and perdido = 1 ";
+        }else{
+            $sql .= " and activo = $active "; 
+        }
+    }     
+    $sql .= " order by fecha desc ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$start, $end]);
     return $stmt->fetchAll();
 }
 
-function getAllByDateAndCarpeta($pdo, $carpeta_id, $start, $end){
+function getAllByDateAndCarpeta($pdo, $carpeta_id, $start, $end, $active){
     $sql =  " select a.* from archivo a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id "
-         .  " WHERE c.carpeta_id = ? and  date(fecha) >= ? and date(fecha) <= ? order by fecha desc ";
+            .  " WHERE c.carpeta_id = ? and  date(fecha) >= ? and date(fecha) <= ? "; 
+    if(!empty($active)) {
+        if($active=='lost'){
+            $sql .= " and perdido = 1 ";
+        }else{
+            $sql .= " and activo = $active "; 
+        }
+    }     
+    $sql .= " order by fecha desc ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$carpeta_id, $start, $end]);
     return $stmt->fetchAll();
 }
 
-$pdo = Database::getPDO();
 
 if(isset($_GET['category']) && $_GET['category']!= "0" && $_GET['category']!= "undefined"){
-    $documents = getAllByDateAndCarpeta($pdo, $_GET['category'], $_GET["sd"], $_GET["ed"]);
+    $documents = getAllByDateAndCarpeta($pdo, $_GET['category'], $_GET["sd"], $_GET["ed"],$active);
 } else {
-    $documents = getAllByDate($pdo, $_GET["sd"], $_GET["ed"]);
+    $documents = getAllByDate($pdo, $_GET["sd"], $_GET["ed"], $active);
 }
 
 
@@ -38,9 +55,8 @@ $data = [];
 foreach($documents as $document) {
     //var_dump($document['otros']);
     $status;
-    if($document['activo']){$status ='Actif';}
-    elseif($document['perdido']){$status='Perdu';}
-    else{$status='Inactif';}
+    if($document['activo']=='1'){$status ='Actif';}elseif($document['activo']='0'){$status='Inactif';}
+    if($document['perdido']=='1'){$status='Perdu';}
     $lineData = array($document['nombre_documento'], $document['descripcion'], $document['ubicacion'], $document['folio'], $document['responsable'], $document['otros'], $status, $document['fecha'] );
     array_push( $data , $lineData );
 }

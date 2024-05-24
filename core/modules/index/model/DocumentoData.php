@@ -114,15 +114,56 @@ class DocumentoData {
 		}
 		return $array;
 	}
+	///------------------------------NON ACTIV
+	public static function getNonActiveByDateOfficial($start,$end){
+		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo = 0 order by fecha desc";
+				if($start == $end){
+				 $sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" and activo=0 order by fecha desc";
+				}
+				$query = Executor::doit($sql);
+				return Model::many($query[0],new DocumentoData());
+	}
+
+
+	public static function getNonActiveByDateAndCarpeta($carpeta_id, $start, $end){
+		$sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and  date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo = 0 order by fecha desc";
+				if($start == $end){
+				 $sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and date(fecha) = \"$start\" and activo=0 order by fecha desc";
+				}
+				$query = Executor::doit($sql);
+				return Model::many($query[0],new DocumentoData());
+	
+	}
 	// --------------------------------REPORTE DOCUMENTOS ACTIVOS
-	public static function getAllByDateOfficial($start,$end){
-		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" order by fecha desc";
+	public static function getActiveByDateOfficial($start,$end){
+		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo = 1 order by fecha desc";
 				if($start == $end){
 				 $sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" and activo=1 order by fecha desc";
 				}
 				$query = Executor::doit($sql);
 				return Model::many($query[0],new DocumentoData());
 	}
+
+
+	public static function getActiveByDateAndCarpeta($carpeta_id, $start, $end){
+		$sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and  date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and activo = 1 order by fecha desc";
+				if($start == $end){
+				 $sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and date(fecha) = \"$start\" and activo=1 order by fecha desc";
+				}
+				$query = Executor::doit($sql);
+				return Model::many($query[0],new DocumentoData());
+	
+	}
+
+	public static function getActiveByDateOfficialBP($archivo, $start,$end){
+		$sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and id_archivo=$achivo and activo=1 order by fecha desc";
+			if($start == $end){
+				$sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" and activo=1 order by fecha desc";
+			}
+				$query = Executor::doit($sql);
+				return Model::many($query[0],new DocumentoData());
+	}
+
 
 	public static function getAllByDateAndCarpeta($carpeta_id, $start, $end){
 		$sql = "select a.* from ".self::$tablename." a INNER JOIN carpetaarchivo c ON a.id_archivo = c.archivo_id WHERE c.carpeta_id = ".$carpeta_id." and  date(fecha) >= \"$start\" and date(fecha) <= \"$end\" order by fecha desc";
@@ -135,9 +176,9 @@ class DocumentoData {
 	}
 
 	public static function getAllByDateOfficialBP($archivo, $start,$end){
-		$sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and id_archivo=$achivo and activo=1 order by fecha desc";
+		$sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and id_archivo=$achivo order by fecha desc";
 			if($start == $end){
-				$sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" and activo=1 order by fecha desc";
+				$sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" order by fecha desc";
 			}
 				$query = Executor::doit($sql);
 				return Model::many($query[0],new DocumentoData());
@@ -161,7 +202,7 @@ class DocumentoData {
 				return Model::many($query[0],new DocumentoData());
 	}
 	// --------------------------------REPORTE DOCUMENTOS EN GENERAL
-		public static function getAllByDateOfficialll($start,$end){
+	public static function getAllByDateOfficialll($start,$end){
 		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" order by fecha desc";
 				if($start == $end){
 				 $sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" order by fecha desc";
@@ -188,13 +229,21 @@ class DocumentoData {
 				return Model::many($query[0],new DocumentoData());
 	}
 
-		public static function getAllByDateOfficialBPpj($archivo, $start,$end){
-		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and id_archivo=$achivo and perdido=1 order by fecha desc";
+	public static function getAllByDateOfficialBPpj($archivo, $start,$end){
+		 $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and id_archivo=$archivo and perdido=1 order by fecha desc";
 				if($start == $end){
 				 $sql = "select * from ".self::$tablename." where date(fecha) = \"$start\" and perdido=1 order by fecha desc";
 				}
 				$query = Executor::doit($sql);
 				return Model::many($query[0],new DocumentoData());
+	}
+	/// ------get lost
+	public static function getLost($archivo, $start, $end){
+		if($archivo!=null){
+			return self::getAllByDateOfficialBPpj($archivo, $start, $end);
+		}else{
+			return self::getAllByDateOfficiallj($start,$end);
+		}
 	}
 }
 

@@ -9,7 +9,7 @@ class Database {
         $this->pass = "root"; // Ensure this matches your MySQL password
         $this->host = "localhost";
         $this->ddbb = "repositorio";
-		$this->port = '3306';
+		$this->port = '3307';
         $this->charset = 'utf8mb4';
     }
 
