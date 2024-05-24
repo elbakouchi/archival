@@ -55,7 +55,7 @@
             </form>
             <div class="row">
   <div class="col-md-12 table-responsive">
-    <?php if(isset($_GET["sd"]) && isset($_GET["ed"] && !empty($_GET["sd"]) && !empty($_GET["ed"]) ):?>
+    <?php if( isset($_GET["sd"]) && isset($_GET["ed"]) && !empty($_GET["sd"]) && !empty($_GET["ed"])  ):?>
       <?php if($_GET["sd"]!=""&&$_GET["ed"]!=""):?>
       <?php 
           $operations = array();
