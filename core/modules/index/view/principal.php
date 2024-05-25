@@ -268,9 +268,9 @@ $org = OrganizacionData::getAll();
             <li><a href="index.php?view=reportedocumentos"><i class="fa fa-bar-chart-o"></i> Documents actifs</a></li>
             <li><a href="index.php?view=reportedocumentosnoactivos"><i class="fa fa-bar-chart-o"></i> Documents non actifs</a></li>
             <li><a href="index.php?view=reportedocumentoperdido"><i class="fa fa-bar-chart-o"></i> Documents perdus</a></li>
-            <!-- <li><a href="index.php?view=reportejefe"><i class="fa fa-bar-chart-o"></i> Reporte de Jefe</a></li> -->
+            <!-- <li><a href="index.php?view=reportejefe"><i class="fa fa-bar-chart-o"></i> Reporte de Jefe</a></li> 
             <li><a href="index.php?view=reporteencargado"><i class="fa fa-bar-chart-o"></i> Rapport du gestionnaire</a></li>
-            <li><a href="index.php?view=reporteadministrador"><i class="fa fa-bar-chart-o"></i> Rapport de l'administrateur</a></li>
+            <li><a href="index.php?view=reporteadministrador"><i class="fa fa-bar-chart-o"></i> Rapport de l'administrateur</a></li>-->
           </ul>
         </li>
         <li class="header">PARAMÈTRE</li>
