@@ -39,6 +39,6 @@ include "controller/Form.php";
 // 22/05/2024
 
 // Manually include Composer's autoloader
-require 'C:\\Users\\dell\\projects\\archives\\folderfile\\folderfile\\vendor\\autoload.php'; 
+require_once __DIR__ . '\\..\\vendor\\autoload.php';
 
 ?>

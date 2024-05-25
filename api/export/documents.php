@@ -1,10 +1,13 @@
 <?php
 error_reporting(E_ERROR| E_PARSE);
-require 'C:\\Users\\dell\\projects\\archives\\folderfile\\folderfile\\core\\autoload.php'; // Include Composer's autoloader
+
+require_once __DIR__ . '\\..\\..\\core\\autoload.php';
 
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
 
 $pdo = Database::getPDO();
 
@@ -53,15 +56,12 @@ if(isset($_GET['category']) && $_GET['category']!= "0" && $_GET['category']!= "u
 $data = [];
 
 foreach($documents as $document) {
-    //var_dump($document['otros']);
     $status;
     if($document['activo']=='1'){$status ='Actif';}elseif($document['activo']='0'){$status='Inactif';}
     if($document['perdido']=='1'){$status='Perdu';}
     $lineData = array($document['nombre_documento'], $document['descripcion'], $document['ubicacion'], $document['folio'], $document['responsable'], $document['otros'], $status, $document['fecha'] );
     array_push( $data , $lineData );
 }
-//var_dump($data);
-//die();
 $headers = [
    'Document',
    'Description',
@@ -77,6 +77,17 @@ $fileName = 'export-documents-'. date('Y-m-d-H-m-s') . '.xlsx';
 // Create a new Spreadsheet object
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
+
+// Color the header and make text bold
+$sheet->getStyle('A1:H1')->applyFromArray([
+    'fill' => [
+        'fillType' => Fill::FILL_SOLID,
+        'startColor' => ['rgb' => 'FFC7CE'],
+    ],
+    'font' => [
+        'bold' => true,
+    ]
+]);
 
 // Set the headers
 // Adjusting the loop to start from the second row (assuming headers are in the first row)
@@ -94,8 +105,6 @@ for ($row = 0, $rowCount = count($data); $row < $rowCount; ++$row) {
         $sheet->setCellValue($cellAddress, $data[$row][$col]);
     }
 }
-//die();
-
 
 // Send the file to the browser for download
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
